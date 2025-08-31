@@ -24,7 +24,7 @@ function Library:New(title)
 	Canvas.BackgroundColor3 = Color3.fromRGB(27, 24, 31)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.25, 0, 0.25, 0)
-	Canvas.Size = UDim2.new(0.403, 0, 0.512, 0)
+	Canvas.Size = UDim2.new(0.39, 0, 0.512, 0)
 	UICorner.Parent = Canvas
 
 	Tab1.Name = "Tab1"
@@ -129,13 +129,16 @@ function Library:New(title)
 		Button.Size = UDim2.new(1, 0, 1, 0)
 		Button.Text = ""
 
-		local function toggle()
-			enabled = not enabled
-			local goal = {}
-			goal.Position = enabled and UDim2.new(0.55, 0, 0.105, 0) or UDim2.new(0, 0, 0.105, 0)
-			TweenService:Create(Indicator, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), goal):Play()
-            pcall(callback)
-		end
+        local function toggle()
+           enabled = not enabled
+           local goal = {}
+           goal.Position = enabled and UDim2.new(0.55, 0, 0.105, 0) or UDim2.new(0, 0, 0.105, 0)
+           TweenService:Create(Indicator, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), goal):Play()
+           if callback then
+              pcall(callback, enabled)  -- pass the current state
+           end
+        end
+
 
 		Button.MouseButton1Click:Connect(toggle)
 
