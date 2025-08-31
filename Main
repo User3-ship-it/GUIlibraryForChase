@@ -1,6 +1,8 @@
-_G.Main = {}
+local TweenService = game:GetService("TweenService")
 
-function _G.Main:New(title)
+local Library = {}
+
+function Library:New(title)
 	local ScreenGui = Instance.new("ScreenGui")
 	local Canvas = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -12,7 +14,6 @@ function _G.Main:New(title)
 	local Tabs = Instance.new("Frame")
 	local UICorner_5 = Instance.new("UICorner")
 	local Title = Instance.new("TextLabel")
-	local TweenService = game:GetService("TweenService")
 
 	-- Gui Setup
 	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -145,3 +146,6 @@ function _G.Main:New(title)
 
 	return FrameObject
 end
+
+return Library
+
