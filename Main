@@ -23,7 +23,7 @@ function Library:New(title)
 	Canvas.Parent = ScreenGui
 	Canvas.BackgroundColor3 = Color3.fromRGB(27, 24, 31)
 	Canvas.BorderSizePixel = 0
-	Canvas.Position = UDim2.new(0.25, 0, 0.25, 0)
+	Canvas.Position = UDim2.new(0.22, 0, 0.25, 0)
 	Canvas.Size = UDim2.new(0.25, 0, 0.512, 0)
 	UICorner.Parent = Canvas
 
