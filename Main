@@ -143,3 +143,5 @@ function _G.Main:New(title)
 
 	return FrameObject
 end
+
+return _G.Main
