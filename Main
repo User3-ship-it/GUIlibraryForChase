@@ -1,6 +1,5 @@
-_G.Main = {}
-
-function _G.Main:New(title)
+local Main = {}
+function Main:New(title)
 	local ScreenGui = Instance.new("ScreenGui")
 	local Canvas = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -144,4 +143,4 @@ function _G.Main:New(title)
 	return FrameObject
 end
 
-return _G.Main
+return Main
