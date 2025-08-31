@@ -134,9 +134,7 @@ function Library:New(title)
 			local goal = {}
 			goal.Position = enabled and UDim2.new(0.55, 0, 0.105, 0) or UDim2.new(0, 0, 0.105, 0)
 			TweenService:Create(Indicator, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), goal):Play()
-			if callback then
-				callback(enabled)
-			end
+            pcall(callback)
 		end
 
 		Button.MouseButton1Click:Connect(toggle)
