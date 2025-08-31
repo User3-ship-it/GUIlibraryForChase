@@ -1,151 +1,59 @@
-local TweenService = game:GetService("TweenService")
+_G.Main = {}
 
-local Library = {}
+function _G.Main:New(title)
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "EpicalUI"
+    ScreenGui.Parent = game:GetService("CoreGui")
 
-function Library:New(title)
-	local ScreenGui = Instance.new("ScreenGui")
-	local Canvas = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
-	local Tab1 = Instance.new("Frame")
-	local UICorner_2 = Instance.new("UICorner")
-	local ScrollingFrame = Instance.new("ScrollingFrame")
-	local UIPadding = Instance.new("UIPadding")
-	local UIListLayout = Instance.new("UIListLayout")
-	local Tabs = Instance.new("Frame")
-	local UICorner_5 = Instance.new("UICorner")
-	local Title = Instance.new("TextLabel")
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(0, 300, 0, 200)
+    Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+    Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    Frame.BorderSizePixel = 0
+    Frame.Parent = ScreenGui
 
-	-- Gui Setup
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    local Title = Instance.new("TextLabel")
+    Title.Size = UDim2.new(1, 0, 0, 30)
+    Title.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.Text = title or "Epical UI"
+    Title.Font = Enum.Font.GothamBold
+    Title.TextSize = 16
+    Title.Parent = Frame
 
-	Canvas.Name = "Canvas"
-	Canvas.Parent = ScreenGui
-	Canvas.BackgroundColor3 = Color3.fromRGB(27, 24, 31)
-	Canvas.BorderSizePixel = 0
-	Canvas.Position = UDim2.new(0.25, 0, 0.25, 0)
-	Canvas.Size = UDim2.new(0.562, 0, 0.512, 0)
-	UICorner.Parent = Canvas
+    local Container = Instance.new("Frame")
+    Container.Size = UDim2.new(1, 0, 1, -30)
+    Container.Position = UDim2.new(0, 0, 0, 30)
+    Container.BackgroundTransparency = 1
+    Container.Parent = Frame
 
-	Tab1.Name = "Tab1"
-	Tab1.Parent = Canvas
-	Tab1.BackgroundColor3 = Color3.fromRGB(26, 23, 30)
-	Tab1.BorderSizePixel = 0
-	Tab1.Position = UDim2.new(0.085, 0, 0.125, 0)
-	Tab1.Size = UDim2.new(0.89, 0, 0.83, 0)
-	UICorner_2.CornerRadius = UDim.new(0, 5)
-	UICorner_2.Parent = Tab1
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Padding = UDim.new(0, 5)
+    UIListLayout.Parent = Container
 
-	ScrollingFrame.Parent = Tab1
-	ScrollingFrame.Active = true
-	ScrollingFrame.BackgroundTransparency = 1
-	ScrollingFrame.MidImage = "rbxassetid://5234388158"
-	ScrollingFrame.BottomImage = "rbxassetid://86927157225558"
-	ScrollingFrame.TopImage = "rbxassetid://115122166951013"
-	ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(142, 119, 255)
-	ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
-	ScrollingFrame.ScrollBarThickness = 7
+    local FrameObject = {}
 
-	UIPadding.Parent = ScrollingFrame
-	UIPadding.PaddingLeft = UDim.new(0, 15)
-	UIPadding.PaddingTop = UDim.new(0, 20)
+    function FrameObject:Toggle(name, callback)
+        local Toggle = Instance.new("TextButton")
+        Toggle.Size = UDim2.new(1, -10, 0, 30)
+        Toggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Toggle.Text = name
+        Toggle.Font = Enum.Font.Gotham
+        Toggle.TextSize = 14
+        Toggle.Parent = Container
 
-	UIListLayout.Parent = ScrollingFrame
-	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	UIListLayout.Padding = UDim.new(0.02, 0)
+        local state = false
+        Toggle.MouseButton1Click:Connect(function()
+            state = not state
+            Toggle.BackgroundColor3 = state and Color3.fromRGB(0, 170, 127) or Color3.fromRGB(60, 60, 60)
+            if callback then
+                task.spawn(callback, state)
+            end
+        end)
+    end
 
-	Tabs.Name = "Tabs"
-	Tabs.Parent = Canvas
-	Tabs.BackgroundColor3 = Color3.fromRGB(26, 23, 30)
-	Tabs.Position = UDim2.new(0.015, 0, 0.125, 0)
-	Tabs.Size = UDim2.new(0.058, 0, 0.835, 0)
-	UICorner_5.CornerRadius = UDim.new(0, 5)
-	UICorner_5.Parent = Tabs
-
-	Title.Name = "Title"
-	Title.Parent = Canvas
-	Title.BackgroundTransparency = 1
-	Title.Position = UDim2.new(0.015, 0, 0.04, 0)
-	Title.Size = UDim2.new(0.96, 0, 0.04, 0)
-	Title.Font = Enum.Font.RobotoMono
-	Title.Text = title
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextScaled = true
-	Title.TextXAlignment = Enum.TextXAlignment.Left
-
-	-- Object for returning
-	local FrameObject = {}
-
-	function FrameObject:Toggle(name, callback)
-		local Toggle = Instance.new("Frame")
-		local Name = Instance.new("TextLabel")
-		local Toggler = Instance.new("Frame")
-		local UICorner_3 = Instance.new("UICorner")
-		local Indicator = Instance.new("Frame")
-		local UICorner_4 = Instance.new("UICorner")
-		local Button = Instance.new("TextButton")
-		local stroke = Instance.new("UIStroke")
-		local enabled = false
-
-		Toggle.Name = "Toggle"
-		Toggle.Parent = ScrollingFrame
-		Toggle.BackgroundTransparency = 1
-		Toggle.Size = UDim2.new(0, 520, 0, 36)
-
-		Name.Name = "Name"
-		Name.Parent = Toggle
-		Name.BackgroundTransparency = 1
-		Name.Position = UDim2.new(0.03, 0, 0.2, 0)
-		Name.Size = UDim2.new(0.87, 0, 0.53, 0)
-		Name.Font = Enum.Font.RobotoMono
-		Name.Text = name
-		Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Name.TextScaled = true
-		Name.TextXAlignment = Enum.TextXAlignment.Left
-
-		Toggler.Name = "Toggler"
-		Toggler.Parent = Toggle
-		Toggler.BackgroundColor3 = Color3.fromRGB(58, 50, 84)
-		Toggler.Position = UDim2.new(0.9, 0, 0.23, 0)
-		Toggler.Size = UDim2.new(0.063, 0, 0.49, 0)
-		UICorner_3.CornerRadius = UDim.new(0, 9)
-		UICorner_3.Parent = Toggler
-		stroke.Parent = Toggler
-		stroke.Color = Color3.fromRGB(156, 147, 255)
-		stroke.Thickness = 1
-		stroke.Transparency = 0.62
-
-		Indicator.Name = "Indicator"
-		Indicator.Parent = Toggler
-		Indicator.BackgroundColor3 = Color3.fromRGB(156, 123, 255)
-		Indicator.Position = UDim2.new(0, 0, 0.105, 0)
-		Indicator.Size = UDim2.new(0.42, 0, 0.76, 0)
-		UICorner_4.CornerRadius = UDim.new(0, 1000)
-		UICorner_4.Parent = Indicator
-
-		Button.Name = "Button"
-		Button.Parent = Toggler
-		Button.BackgroundTransparency = 1
-		Button.Size = UDim2.new(1, 0, 1, 0)
-		Button.Text = ""
-
-		local function toggle()
-			enabled = not enabled
-			local goal = {}
-			goal.Position = enabled and UDim2.new(0.55, 0, 0.105, 0) or UDim2.new(0, 0, 0.105, 0)
-			TweenService:Create(Indicator, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), goal):Play()
-			if callback then
-				callback(enabled)
-			end
-		end
-
-		Button.MouseButton1Click:Connect(toggle)
-
-		return Toggle
-	end
-
-	return FrameObject
+    return FrameObject
 end
 
-return Library
-
+return _G.Main
