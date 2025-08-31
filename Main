@@ -1,6 +1,6 @@
 local TweenService = game:GetService("TweenService")
 
-local Library = {}
+local Library = {} -- the library table
 
 function Library:New(title)
 	local ScreenGui = Instance.new("ScreenGui")
@@ -13,7 +13,7 @@ function Library:New(title)
 	local UIListLayout = Instance.new("UIListLayout")
 	local Tabs = Instance.new("Frame")
 	local UICorner_5 = Instance.new("UICorner")
-	local Title = Instance.new("TextLabel")
+	local TitleLabel = Instance.new("TextLabel")
 
 	-- Gui Setup
 	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -62,23 +62,23 @@ function Library:New(title)
 	UICorner_5.CornerRadius = UDim.new(0, 5)
 	UICorner_5.Parent = Tabs
 
-	Title.Name = "Title"
-	Title.Parent = Canvas
-	Title.BackgroundTransparency = 1
-	Title.Position = UDim2.new(0.015, 0, 0.04, 0)
-	Title.Size = UDim2.new(0.96, 0, 0.04, 0)
-	Title.Font = Enum.Font.RobotoMono
-	Title.Text = title
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextScaled = true
-	Title.TextXAlignment = Enum.TextXAlignment.Left
+	TitleLabel.Name = "Title"
+	TitleLabel.Parent = Canvas
+	TitleLabel.BackgroundTransparency = 1
+	TitleLabel.Position = UDim2.new(0.015, 0, 0.04, 0)
+	TitleLabel.Size = UDim2.new(0.96, 0, 0.04, 0)
+	TitleLabel.Font = Enum.Font.RobotoMono
+	TitleLabel.Text = title
+	TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TitleLabel.TextScaled = true
+	TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 	-- Object for returning
 	local FrameObject = {}
 
 	function FrameObject:Toggle(name, callback)
 		local Toggle = Instance.new("Frame")
-		local Name = Instance.new("TextLabel")
+		local NameLabel = Instance.new("TextLabel")
 		local Toggler = Instance.new("Frame")
 		local UICorner_3 = Instance.new("UICorner")
 		local Indicator = Instance.new("Frame")
@@ -92,16 +92,16 @@ function Library:New(title)
 		Toggle.BackgroundTransparency = 1
 		Toggle.Size = UDim2.new(0, 520, 0, 36)
 
-		Name.Name = "Name"
-		Name.Parent = Toggle
-		Name.BackgroundTransparency = 1
-		Name.Position = UDim2.new(0.03, 0, 0.2, 0)
-		Name.Size = UDim2.new(0.87, 0, 0.53, 0)
-		Name.Font = Enum.Font.RobotoMono
-		Name.Text = name
-		Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Name.TextScaled = true
-		Name.TextXAlignment = Enum.TextXAlignment.Left
+		NameLabel.Name = "Name"
+		NameLabel.Parent = Toggle
+		NameLabel.BackgroundTransparency = 1
+		NameLabel.Position = UDim2.new(0.03, 0, 0.2, 0)
+		NameLabel.Size = UDim2.new(0.87, 0, 0.53, 0)
+		NameLabel.Font = Enum.Font.RobotoMono
+		NameLabel.Text = name
+		NameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		NameLabel.TextScaled = true
+		NameLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 		Toggler.Name = "Toggler"
 		Toggler.Parent = Toggle
