@@ -1,25 +1,26 @@
-_G.Main = {}
+local Library = {}
 
-function _G.Main:New(title)
+function Library:New(title)
     local ScreenGui = Instance.new("ScreenGui")
     ScreenGui.Name = "EpicalUI"
+    ScreenGui.ResetOnSpawn = false
     ScreenGui.Parent = game:GetService("CoreGui")
 
     local Frame = Instance.new("Frame")
     Frame.Size = UDim2.new(0, 300, 0, 200)
     Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
-    Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     Frame.BorderSizePixel = 0
     Frame.Parent = ScreenGui
 
-    local Title = Instance.new("TextLabel")
-    Title.Size = UDim2.new(1, 0, 0, 30)
-    Title.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Title.Text = title or "Epical UI"
-    Title.Font = Enum.Font.GothamBold
-    Title.TextSize = 16
-    Title.Parent = Frame
+    local TitleBar = Instance.new("TextLabel")
+    TitleBar.Size = UDim2.new(1, 0, 0, 30)
+    TitleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    TitleBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TitleBar.Text = title or "Window"
+    TitleBar.Font = Enum.Font.GothamBold
+    TitleBar.TextSize = 16
+    TitleBar.Parent = Frame
 
     local Container = Instance.new("Frame")
     Container.Size = UDim2.new(1, 0, 1, -30)
@@ -31,29 +32,30 @@ function _G.Main:New(title)
     UIListLayout.Padding = UDim.new(0, 5)
     UIListLayout.Parent = Container
 
-    local FrameObject = {}
+    local Window = {}
 
-    function FrameObject:Toggle(name, callback)
-        local Toggle = Instance.new("TextButton")
-        Toggle.Size = UDim2.new(1, -10, 0, 30)
-        Toggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
-        Toggle.Text = name
-        Toggle.Font = Enum.Font.Gotham
-        Toggle.TextSize = 14
-        Toggle.Parent = Container
+    -- ✅ Toggle only
+    function Window:Toggle(name, callback)
+        local Button = Instance.new("TextButton")
+        Button.Size = UDim2.new(1, -10, 0, 30)
+        Button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Button.Text = name
+        Button.Font = Enum.Font.Gotham
+        Button.TextSize = 14
+        Button.Parent = Container
 
         local state = false
-        Toggle.MouseButton1Click:Connect(function()
+        Button.MouseButton1Click:Connect(function()
             state = not state
-            Toggle.BackgroundColor3 = state and Color3.fromRGB(0, 170, 127) or Color3.fromRGB(60, 60, 60)
+            Button.BackgroundColor3 = state and Color3.fromRGB(0, 170, 127) or Color3.fromRGB(60, 60, 60)
             if callback then
                 task.spawn(callback, state)
             end
         end)
     end
 
-    return FrameObject
+    return Window
 end
 
-return _G.Main
+return Library
