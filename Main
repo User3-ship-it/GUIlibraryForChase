@@ -34,7 +34,6 @@ function Library:New(title)
 
     local Window = {}
 
-    -- ✅ Toggle only
     function Window:Toggle(name, callback)
         local Button = Instance.new("TextButton")
         Button.Size = UDim2.new(1, -10, 0, 30)
@@ -59,3 +58,4 @@ function Library:New(title)
 end
 
 return Library
+
