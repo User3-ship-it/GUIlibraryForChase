@@ -26,6 +26,7 @@ function Library:New(title)
 	Canvas.Position = UDim2.new(0.25, 0, 0.25, 0)
 	Canvas.Size = UDim2.new(0.356, 0, 0.512, 0)
 	UICorner.Parent = Canvas
+    Canvas.Draggable = true
 
 	Tab1.Name = "Tab1"
 	Tab1.Parent = Canvas
