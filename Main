@@ -1,5 +1,8 @@
-local Main = {}
-function Main:New(title)
+local TweenService = game:GetService("TweenService")
+
+local Library = {}
+
+function Library:New(title)
 	local ScreenGui = Instance.new("ScreenGui")
 	local Canvas = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -11,7 +14,6 @@ function Main:New(title)
 	local Tabs = Instance.new("Frame")
 	local UICorner_5 = Instance.new("UICorner")
 	local Title = Instance.new("TextLabel")
-	local TweenService = game:GetService("TweenService")
 
 	-- Gui Setup
 	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -132,7 +134,9 @@ function Main:New(title)
 			local goal = {}
 			goal.Position = enabled and UDim2.new(0.55, 0, 0.105, 0) or UDim2.new(0, 0, 0.105, 0)
 			TweenService:Create(Indicator, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), goal):Play()
-			pcall(callback)
+			if callback then
+				callback(enabled)
+			end
 		end
 
 		Button.MouseButton1Click:Connect(toggle)
@@ -143,4 +147,4 @@ function Main:New(title)
 	return FrameObject
 end
 
-return Main
+return Library
