@@ -211,9 +211,9 @@ function Library:New(Name)
 			TextButton.FontFace = Font.fromId(12187371840)
 			TextButton.TextColor3 = Color3.fromRGB(234, 234, 234)
 			TextButton.Text = Name
-			TextButton.TextSize = 15
+			TextButton.TextSize = 17
 			UITextSizeConstraint.Parent = TextButton
-			UITextSizeConstraint.MaxTextSize = 15
+			UITextSizeConstraint.MaxTextSize = 17
 			UITextSizeConstraint.MinTextSize = 1
 			
 
