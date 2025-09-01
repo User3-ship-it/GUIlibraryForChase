@@ -36,10 +36,10 @@ function Library:New(Name)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.402, 0, 0.802, 0)
+	Canvas.Size = UDim2.new(0.38, 0, 0.78, 0)
 
 	UICorner.Parent = Canvas
-	UIAspectRatioConstraint.Parent = Canvas
+    UIAspectRatioConstraint.Parent = Canvas
 	UIAspectRatioConstraint.AspectRatio = 1.425
 
 	Title.Name = "Title"
@@ -133,7 +133,7 @@ function Library:New(Name)
 		Tab.Parent = Tabs
 		Tab.BackgroundTransparency = 1
 		Tab.Text = ""
-		Tab.Size = UDim2.new(0.929, 0, 0.086, 0) -- partially scaled with pixel offset
+		Tab.Size = UDim2.new(0.929, 0, 0.086, 0) 
 
 		UIStroke.Color = Color3.fromRGB(4, 150, 245)
 		UIStroke.Transparency = 1
@@ -161,7 +161,6 @@ function Library:New(Name)
 		UIPadding.PaddingTop = UDim.new(0.02,0)
 		UIPadding.PaddingLeft = UDim.new(0.05,0)
 
-		-- Create corresponding tab content
 		local TabFrame = Instance.new("ScrollingFrame", Canvas)
 		UIPadding.Parent = TabFrame
 		TabFrame.Name = TabText .. "_Frame"
@@ -175,9 +174,7 @@ function Library:New(Name)
 
 		tabData[Tab] = {BlueSelect = BlueSelect, UIStroke = UIStroke, TabName = TabName, TabFrame = TabFrame}
 
-		-- Click behavior
 		Tab.MouseButton1Click:Connect(function()
-			-- Reset previous tab
 			if selectedTab and selectedTab ~= Tab then
 				local old = tabData[selectedTab]
 				TweenService:Create(old.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0, 0,0.521, 0)}):Play()
