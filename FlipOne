@@ -1,5 +1,6 @@
 local Library = {}
 local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
 
 function Library:New(Name)
 	local ScreenGui = Instance.new("ScreenGui")
@@ -35,7 +36,7 @@ function Library:New(Name)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.442220211, 0, 0.804245293, 0)
+	Canvas.Size = UDim2.new(0.402, 0, 0.802, 0)
 
 	UICorner.Parent = Canvas
 	UIAspectRatioConstraint.Parent = Canvas
@@ -63,8 +64,8 @@ function Library:New(Name)
 	Tabs.BackgroundTransparency = 1.000
 	Tabs.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Tabs.BorderSizePixel = 0
-	Tabs.Position = UDim2.new(0, 0, 0.0791788846, 0)
-	Tabs.Size = UDim2.new(0, 134, 0, 314)
+	Tabs.Position = UDim2.new(0, 0,0.076, 0)
+	Tabs.Size = UDim2.new(0.276, 0,0.922, 0)
 
 	UIListLayout.Parent = Tabs
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -74,6 +75,45 @@ function Library:New(Name)
 	UIPadding.PaddingLeft = UDim.new(0.0599999987, 0)
 	UIPadding.PaddingTop = UDim.new(0.00999999978, 0)
 
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		Canvas.Position = UDim2.new(
+			startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y
+		)
+	end
+	
+	Canvas.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = Canvas.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	Canvas.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
 	local selectedTab = nil
 	local tabData = {}
 
@@ -88,14 +128,12 @@ function Library:New(Name)
 		local UIStroke = Instance.new("UIStroke", Tab)
 		local BlueSelect = Instance.new("Frame", Tab)
 		local TabName = Instance.new("TextLabel", Tab)
-		local UiAspect = Instance.new("UIAspectRatioConstraint", Tab)
 
 		Tab.Name = "Tab"
 		Tab.Parent = Tabs
 		Tab.BackgroundTransparency = 1
-		Tab.Size = UDim2.new(0, 119, 0, 24)
 		Tab.Text = ""
-		UiAspect.AspectRatio = 4.958
+		Tab.Size = UDim2.new(0.929, 0, 0.086, 0) -- partially scaled with pixel offset
 
 		UIStroke.Color = Color3.fromRGB(4, 150, 245)
 		UIStroke.Transparency = 1
@@ -104,14 +142,14 @@ function Library:New(Name)
 
 		BlueSelect.BackgroundColor3 = Color3.fromRGB(20, 165, 255)
 		BlueSelect.BorderSizePixel = 0
-		BlueSelect.Position = UDim2.new(0.0180716254, 0, 0.208333328, 0)
-		BlueSelect.Size = UDim2.new(0, 0, 0, 14)
+		BlueSelect.Position = UDim2.new(0.01, 0,0.208, 0)
+		BlueSelect.Size = UDim2.new(0, 0,0.521, 0)
 		BlueSelect.ZIndex = -1
 		BlueSelect.Name = "BlueSelect"
 
 		TabName.BackgroundTransparency = 1
-		TabName.Position = UDim2.new(0.0180716254, 0, 0.208333328, 0)
-		TabName.Size = UDim2.new(0, 101, 0, 12)
+		TabName.Position = UDim2.new(-0, 0,0.074, 0)
+		TabName.Size = UDim2.new(1, 0,0.73, 0)
 		TabName.FontFace = Font.fromId(12187371840)
 		TabName.Text = TabText
 		TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -142,7 +180,7 @@ function Library:New(Name)
 			-- Reset previous tab
 			if selectedTab and selectedTab ~= Tab then
 				local old = tabData[selectedTab]
-				TweenService:Create(old.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0, 0, 0, 14)}):Play()
+				TweenService:Create(old.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0, 0,0.521, 0)}):Play()
 				TweenService:Create(old.UIStroke, TweenInfo.new(0.3), {Transparency = 1}):Play()
 				TweenService:Create(old.TabName, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 				old.TabFrame.Visible = false
@@ -150,7 +188,7 @@ function Library:New(Name)
 
 			-- Animate current tab
 			local current = tabData[Tab]
-			TweenService:Create(current.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0.9, 0, 0, 14)}):Play()
+			TweenService:Create(current.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0.9, 0,0.521, 0)}):Play()
 			TweenService:Create(current.UIStroke, TweenInfo.new(0.3), {Transparency = 0}):Play()
 			TweenService:Create(current.TabName, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(0, 0, 0)}):Play()
 			current.TabFrame.Visible = true
