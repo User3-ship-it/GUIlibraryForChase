@@ -200,6 +200,7 @@ function Library:New(Name)
 			local TextButton = Instance.new("TextButton")
 			local UICorner_4 = Instance.new("UICorner")
 			local UIStroke_2 = Instance.new("UIStroke")
+			local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
 			
 			TextButton.Parent = TabFrame
 			TextButton.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -210,7 +211,11 @@ function Library:New(Name)
 			TextButton.FontFace = Font.fromId(12187371840)
 			TextButton.TextColor3 = Color3.fromRGB(234, 234, 234)
 			TextButton.Text = Name
-			TextButton.TextSize = 14.000
+			TextButton.TextSize = 15
+			UITextSizeConstraint.Parent = TextButton
+			UITextSizeConstraint.MaxTextSize = 15
+			UITextSizeConstraint.MinTextSize = 1
+			
 
 			UICorner_4.CornerRadius = UDim.new(0, 6)
 			UICorner_4.Parent = TextButton
@@ -235,3 +240,4 @@ function Library:New(Name)
 end
 
 return Library
+
