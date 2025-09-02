@@ -128,6 +128,7 @@ function Library:New(Name)
 		local UIStroke = Instance.new("UIStroke", Tab)
 		local BlueSelect = Instance.new("Frame", Tab)
 		local TabName = Instance.new("TextLabel", Tab)
+		local list = Instance.new("UIListLayout")
 
 		Tab.Name = "Tab"
 		Tab.Parent = Tabs
@@ -142,7 +143,7 @@ function Library:New(Name)
 
 		BlueSelect.BackgroundColor3 = Color3.fromRGB(20, 165, 255)
 		BlueSelect.BorderSizePixel = 0
-		BlueSelect.Position = UDim2.new(0.01, 0,0.208, 0)
+		BlueSelect.Position = UDim2.new(0.02, 0,0.208, 0)
 		BlueSelect.Size = UDim2.new(0, 0,0.521, 0)
 		BlueSelect.ZIndex = -1
 		BlueSelect.Name = "BlueSelect"
@@ -153,7 +154,7 @@ function Library:New(Name)
 		TabName.FontFace = Font.fromId(12187371840)
 		TabName.Text = TabText
 		TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TabName.TextSize = 18
+		TabName.TextSize = 15
 		TabName.TextXAlignment = Enum.TextXAlignment.Left
 		TabName.Name = "TabName"
 		
@@ -171,6 +172,8 @@ function Library:New(Name)
 		TabFrame.Visible = false
 		TabFrame.ScrollBarImageTransparency = 1
 		TabFrame.VerticalScrollBarInset = Enum.ScrollBarInset.Always
+		list.Parent = TabFrame
+		list.Padding = UDim.new(0.017, 0)
 
 		tabData[Tab] = {BlueSelect = BlueSelect, UIStroke = UIStroke, TabName = TabName, TabFrame = TabFrame}
 
@@ -207,6 +210,7 @@ function Library:New(Name)
 			TextButton.FontFace = Font.fromId(12187371840)
 			TextButton.TextColor3 = Color3.fromRGB(234, 234, 234)
 			TextButton.Text = Name
+			TextButton.Name = "Button".. Name
 			TextButton.TextSize = 14
 			
 
@@ -224,6 +228,103 @@ function Library:New(Name)
 			end)
 			
 			print(Name,call)
+		end
+		
+		function tab:NewSlider(name, minValue, maxValue, defaultValue, callback)
+			local Slider = Instance.new("Frame")
+			local UICorner_5 = Instance.new("UICorner")
+			local UIStroke_3 = Instance.new("UIStroke")
+			local SliderName = Instance.new("TextLabel")
+			local SlideBG = Instance.new("Frame")
+			local Fill = Instance.new("Frame")
+			local Trigger = Instance.new("TextButton")
+			local corner = Instance.new("UICorner")
+			local stroke = Instance.new("UIStroke")
+
+			Slider.Name = "Slider"
+			Slider.Parent = TabFrame
+			Slider.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+			Slider.Size = UDim2.new(1, 0, 0.06, 0)
+
+			UICorner_5.Parent = Slider
+			
+			UIStroke_3.Parent = Slider
+			UIStroke_3.Color = Color3.fromRGB(40, 37, 38)
+			UIStroke_3.Thickness = 1.6
+
+			SliderName.Name = "SliderName"
+			SliderName.Parent = Slider
+			SliderName.BackgroundTransparency = 1
+			SliderName.Position = UDim2.new(0.03, 0, 0, 0)
+			SliderName.Size = UDim2.new(0.4, 0, 1, 0)
+			SliderName.FontFace = Font.fromId(12187371840)
+			SliderName.Text = name
+			SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderName.TextSize = 13
+			SliderName.TextXAlignment = Enum.TextXAlignment.Left
+
+			SlideBG.Parent = Slider
+			SlideBG.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+			SlideBG.Position = UDim2.new(0.613, 0,0.4, 0)
+			SlideBG.Size = UDim2.new(0.35, 0,0.174, 0)
+			corner.Parent = SlideBG
+			corner.CornerRadius = UDim.new(0, 1000)
+			stroke.Parent = SlideBG
+			stroke.Color = Color3.fromRGB(40, 37, 38)
+			stroke.Thickness = 1.6
+
+			Fill.Parent = SlideBG
+			Fill.BackgroundColor3 = Color3.fromRGB(56, 51, 54)
+			Fill.Size = UDim2.new(0, 0, 1, 0)
+			
+			Fill.BorderSizePixel = 0
+
+			Trigger.Size = UDim2.new(1, 0, 1, 0)
+			Trigger.BackgroundTransparency = 1
+			Trigger.Text = ""
+			Trigger.Parent = SlideBG
+			-- Slider logic
+			local mouse = game.Players.LocalPlayer:GetMouse()
+			local tweenService = game:GetService("TweenService")
+			local tweenStyle = TweenInfo.new(0.2, Enum.EasingStyle.Exponential)
+
+			local currentValue = defaultValue or minValue
+			local function UpdateSlider()
+				local triggerAbsPos = Trigger.AbsolutePosition.X
+				local triggerWidth = Trigger.AbsoluteSize.X
+				local relativeX = math.clamp(mouse.X - triggerAbsPos, 0, triggerWidth)
+				local percent = relativeX / triggerWidth
+				local value = minValue + percent * (maxValue - minValue)
+				value = math.clamp(value, minValue, maxValue)
+
+				if currentValue ~= value then
+					tweenService:Create(Fill, tweenStyle, { Size = UDim2.fromScale(percent, 1) }):Play()
+					currentValue = value
+					if callback then
+						pcall(callback, value)
+					end
+				end
+			end
+
+			local sliderActive = false
+			local function ActivateSlider()
+				sliderActive = true
+				while sliderActive do
+					UpdateSlider()
+					task.wait()
+				end
+			end
+
+			Trigger.MouseButton1Down:Connect(ActivateSlider)
+			game:GetService("UserInputService").InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					sliderActive = false
+				end
+			end)
+			local initPercent = (currentValue - minValue) / (maxValue - minValue)
+			Fill.Size = UDim2.fromScale(initPercent, 1)
+
+			return currentValue
 		end
 		
 		return tab
