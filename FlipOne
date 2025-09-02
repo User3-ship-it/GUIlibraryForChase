@@ -235,16 +235,17 @@ function Library:New(Name)
 			local UICorner_5 = Instance.new("UICorner")
 			local UIStroke_3 = Instance.new("UIStroke")
 			local SliderName = Instance.new("TextLabel")
-			local SlideBG = Instance.new("Frame")
+			local SlideBG = Instance.new("CanvasGroup")
 			local Fill = Instance.new("Frame")
 			local Trigger = Instance.new("TextButton")
 			local corner = Instance.new("UICorner")
 			local stroke = Instance.new("UIStroke")
 
-			Slider.Name = "Slider"
+			Slider.Name = "Slider"..name
+			SlideBG.Name = "SlideBG"
 			Slider.Parent = TabFrame
 			Slider.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-			Slider.Size = UDim2.new(1, 0, 0.06, 0)
+			Slider.Size = UDim2.new(1, 0, 0.05, 0)
 
 			UICorner_5.Parent = Slider
 			
@@ -334,3 +335,4 @@ function Library:New(Name)
 end
 
 return Library
+
