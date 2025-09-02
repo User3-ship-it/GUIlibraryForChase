@@ -245,7 +245,7 @@ function Library:New(Name)
 			SlideBG.Name = "SlideBG"
 			Slider.Parent = TabFrame
 			Slider.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-			Slider.Size = UDim2.new(1, 0, 0.05, 0)
+			Slider.Size = UDim2.new(1, 0, 0.04, 0)
 
 			UICorner_5.Parent = Slider
 			
@@ -261,7 +261,7 @@ function Library:New(Name)
 			SliderName.FontFace = Font.fromId(12187371840)
 			SliderName.Text = name
 			SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
-			SliderName.TextSize = 13
+			SliderName.TextSize = 14
 			SliderName.TextXAlignment = Enum.TextXAlignment.Left
 
 			SlideBG.Parent = Slider
@@ -335,4 +335,3 @@ function Library:New(Name)
 end
 
 return Library
-
