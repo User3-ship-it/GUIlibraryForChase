@@ -245,13 +245,14 @@ function Library:New(Name)
 			SlideBG.Name = "SlideBG"
 			Slider.Parent = TabFrame
 			Slider.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-			Slider.Size = UDim2.new(1, 0, 0.04, 0)
+			Slider.Size = UDim2.new(0.98, 0,0.041,0)
 
 			UICorner_5.Parent = Slider
 			
 			UIStroke_3.Parent = Slider
 			UIStroke_3.Color = Color3.fromRGB(40, 37, 38)
 			UIStroke_3.Thickness = 1.6
+			UICorner_5.CornerRadius = UDim.new(0, 6)
 
 			SliderName.Name = "SliderName"
 			SliderName.Parent = Slider
