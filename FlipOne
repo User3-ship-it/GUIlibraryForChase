@@ -4,10 +4,8 @@ local UserInputService = game:GetService("UserInputService")
 
 function Library:New(Name)
 	local ScreenGui = Instance.new("ScreenGui")
-	local ImageLabel = Instance.new("ImageLabel")
 	local Canvas = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
-	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 	local Title = Instance.new("TextLabel")
 	local Tabs = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
@@ -18,29 +16,15 @@ function Library:New(Name)
 	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	ImageLabel.Parent = ScreenGui
-	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ImageLabel.BackgroundTransparency = 1.000
-	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	ImageLabel.BorderSizePixel = 0
-	ImageLabel.Position = UDim2.new(0, 0, -0.386792451, 0)
-	ImageLabel.Size = UDim2.new(1, 0, 1.58018863, 0)
-	ImageLabel.Visible = false
-	ImageLabel.ZIndex = 2
-	ImageLabel.Image = "rbxassetid://128043524692888"
-	ImageLabel.ImageTransparency = 0.200
-
 	Canvas.Name = "Canvas"
 	Canvas.Parent = ScreenGui
 	Canvas.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.38, 0, 0.78, 0)
+	Canvas.Size = UDim2.new(0.409, 0,0.542, 0)
 
 	UICorner.Parent = Canvas
-    UIAspectRatioConstraint.Parent = Canvas
-	UIAspectRatioConstraint.AspectRatio = 1.425
 
 	Title.Name = "Title"
 	Title.Parent = Canvas
@@ -143,13 +127,13 @@ function Library:New(Name)
 
 		BlueSelect.BackgroundColor3 = Color3.fromRGB(20, 165, 255)
 		BlueSelect.BorderSizePixel = 0
-		BlueSelect.Position = UDim2.new(0.02, 0,0.208, 0)
+		BlueSelect.Position = UDim2.new(0.08, 0,0.208, 0)
 		BlueSelect.Size = UDim2.new(0, 0,0.521, 0)
 		BlueSelect.ZIndex = -1
 		BlueSelect.Name = "BlueSelect"
 
 		TabName.BackgroundTransparency = 1
-		TabName.Position = UDim2.new(0.04, 0,0.074, 0)
+		TabName.Position = UDim2.new(0.1, 0,0.074, 0)
 		TabName.Size = UDim2.new(1, 0,0.73, 0)
 		TabName.FontFace = Font.fromId(12187371840)
 		TabName.Text = TabText
@@ -188,7 +172,7 @@ function Library:New(Name)
 
 			-- Animate current tab
 			local current = tabData[Tab]
-			TweenService:Create(current.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0.9, 0,0.521, 0)}):Play()
+			TweenService:Create(current.BlueSelect, TweenInfo.new(0.3), {Size = UDim2.new(0.7, 0,0.521, 0)}):Play()
 			TweenService:Create(current.UIStroke, TweenInfo.new(0.3), {Transparency = 0}):Play()
 			TweenService:Create(current.TabName, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(0, 0, 0)}):Play()
 			current.TabFrame.Visible = true
@@ -327,6 +311,81 @@ function Library:New(Name)
 			Fill.Size = UDim2.fromScale(initPercent, 1)
 
 			return currentValue
+		end
+		
+		function tab:NewToggle(name,callback)
+			local tweenService = game:GetService("TweenService")
+			local tweenStyle = TweenInfo.new(0.34, Enum.EasingStyle.Sine)
+			local state = false
+			local Toggle = Instance.new("Frame")
+			local UICorner_6 = Instance.new("UICorner")
+			local UIStroke_4 = Instance.new("UIStroke")
+			local Toggle_2 = Instance.new("TextLabel")
+			local TextButton_2 = Instance.new("TextButton")
+			local UICorner_7 = Instance.new("UICorner")
+			local UIStroke_5 = Instance.new("UIStroke")
+			
+			Toggle.Name = "Toggle".. name
+			Toggle.Parent = TabFrame
+			Toggle.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+			Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Toggle.BorderSizePixel = 0
+			Toggle.Size = UDim2.new(0.980000019, 0, 0.0410000011, 0)
+
+			UICorner_6.CornerRadius = UDim.new(0, 6)
+			UICorner_6.Parent = Toggle
+
+			UIStroke_4.Parent = Toggle
+			UIStroke_4.Color = Color3.fromRGB(40, 37, 38)
+			UIStroke_4.Thickness = 2.000
+			UIStroke_4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+			Toggle_2.Name = "Toggle"
+			Toggle_2.Parent = Toggle
+			Toggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Toggle_2.BackgroundTransparency = 1.000
+			Toggle_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Toggle_2.BorderSizePixel = 0
+			Toggle_2.Position = UDim2.new(0.0337334462, 0, 0, 0)
+			Toggle_2.Size = UDim2.new(0.319197714, 0, 1, 0)
+			Toggle_2.FontFace = Font.fromId(12187371840)
+			Toggle_2.Text = name
+			Toggle_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Toggle_2.TextSize = 14.000
+			Toggle_2.TextXAlignment = Enum.TextXAlignment.Left
+
+			TextButton_2.Parent = Toggle
+			TextButton_2.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+			TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			TextButton_2.BorderSizePixel = 0
+			TextButton_2.Position = UDim2.new(0.899700403, 0, 0.1691636, 0)
+			TextButton_2.Size = UDim2.new(0.046, 0, 0.6, 0)
+			TextButton_2.FontFace = Font.fromId(12187371840)
+			TextButton_2.Text = " "
+			TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+			TextButton_2.TextSize = 14.000
+
+			UICorner_7.CornerRadius = UDim.new(0, 6)
+			UICorner_7.Parent = TextButton_2
+
+			UIStroke_5.Parent = TextButton_2
+			UIStroke_5.Color = Color3.fromRGB(35, 35, 35)
+			UIStroke_5.Thickness = 2.000
+			UIStroke_5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			
+			TextButton_2.MouseButton1Click:Connect(function()
+				state = not state
+				if state == true then
+					tweenService:Create(TextButton_2, tweenStyle, {BackgroundColor3 = Color3.fromRGB(20, 165, 255)}):Play()
+					tweenService:Create(UIStroke_5, tweenStyle, {Color = Color3.fromRGB(12, 100, 148)}):Play()
+				else
+					tweenService:Create(TextButton_2, tweenStyle, {BackgroundColor3 = Color3.fromRGB(28, 28, 28)}):Play()
+					tweenService:Create(UIStroke_5, tweenStyle, {Color = Color3.fromRGB(35, 35, 35)}):Play()
+				end
+				if callback then
+					pcall(callback, state)
+				end
+			end)
 		end
 		
 		return tab
