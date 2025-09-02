@@ -149,7 +149,7 @@ function Library:New(Name)
 		BlueSelect.Name = "BlueSelect"
 
 		TabName.BackgroundTransparency = 1
-		TabName.Position = UDim2.new(-0, 0,0.074, 0)
+		TabName.Position = UDim2.new(0.04, 0,0.074, 0)
 		TabName.Size = UDim2.new(1, 0,0.73, 0)
 		TabName.FontFace = Font.fromId(12187371840)
 		TabName.Text = TabText
