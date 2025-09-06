@@ -16,7 +16,7 @@ function Library:New(Name)
 	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-    ScreenGui.ResetOnSpawn = false
+    ScreenGui.ResetOnSpawn = false 
 
 	Canvas.Name = "Canvas"
 	Canvas.Parent = ScreenGui
