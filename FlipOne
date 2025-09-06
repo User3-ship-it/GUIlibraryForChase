@@ -359,7 +359,7 @@ function Library:New(Name)
 			TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextButton_2.BorderSizePixel = 0
 			TextButton_2.Position = UDim2.new(0.899700403, 0, 0.1691636, 0)
-			TextButton_2.Size = UDim2.new(0.046, 0, 0.55, 0)
+			TextButton_2.Size = UDim2.new(0.046, 0, 0.534, 0)
 			TextButton_2.FontFace = Font.fromId(12187371840)
 			TextButton_2.Text = " "
 			TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
