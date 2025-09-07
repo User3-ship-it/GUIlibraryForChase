@@ -8,8 +8,8 @@ export type Asset = {
     ImageRectOffset: Vector2, -- Vector2.new(648, 266)
 }
 
-local Icons = require(script.Icons)
-local VersionInfo = require(script.VersionInfo)
+local Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/User3-ship-it/GUIlibraryForChase/refs/heads/main/Icons"))()
+local VersionInfo = loadstring(game:HttpGet("https://raw.githubusercontent.com/User3-ship-it/GUIlibraryForChase/refs/heads/main/LucideVersionINFO"))()
 
 local Type = typeof or type
 local function CheckArgTypes(funcName: string, inputArgs: {any}, typeEntries: {[number]: {string}})
