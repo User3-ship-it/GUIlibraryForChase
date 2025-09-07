@@ -360,7 +360,7 @@ function Library:New(Name)
 			TextButton_2.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
 			TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextButton_2.BorderSizePixel = 0
-			TextButton_2.Position = UDim2.new(0.899700403, 0, 0.11, 0)
+			TextButton_2.Position = UDim2.new(0.899700403, 0, 0.156, 0)
 			TextButton_2.Size = UDim2.new(0.046, 0, 0.56, 0)
 			TextButton_2.FontFace = Font.fromId(12187371840)
 			TextButton_2.Text = " "
