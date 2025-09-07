@@ -272,7 +272,7 @@ function Library:New(Name)
 			Trigger.Text = ""
 			Trigger.Parent = SlideBG
 			-- Slider logic
-			local mouse = game.Players.LocalPlayer:GetMouse()
+			local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 			local tweenService = game:GetService("TweenService")
 			local tweenStyle = TweenInfo.new(0.2, Enum.EasingStyle.Exponential)
 
