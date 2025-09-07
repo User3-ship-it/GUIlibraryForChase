@@ -1,0 +1,99 @@
+-- Monstrum's Gui to Lua\n-- Version: 3.2
+
+-- Instances:
+
+local Menu = {}
+local Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/User3-ship-it/GUIlibraryForChase/refs/heads/main/LucideIcons"))()
+
+function Menu:Canvas()
+
+	local ScreenGui = Instance.new("ScreenGui")
+	local ImageLabel = Instance.new("ImageLabel")
+	local Canvas = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local Tab1 = Instance.new("ScrollingFrame")
+	local UICorner_2 = Instance.new("UICorner")
+	local Tab = Instance.new("Frame")
+	local UIListLayout = Instance.new("UIListLayout")
+
+	--Properties:
+
+	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ScreenGui.ResetOnSpawn = false
+
+	ImageLabel.Parent = ScreenGui
+	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel.BackgroundTransparency = 1.000
+	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel.BorderSizePixel = 0
+	ImageLabel.Position = UDim2.new(-0.0355839431, 0, 0, 0)
+	ImageLabel.Size = UDim2.new(1.07025552, 0, 1, 0)
+	ImageLabel.Visible = false
+	ImageLabel.ZIndex = 2
+	ImageLabel.Image = "rbxassetid://79132993099668"
+
+	Canvas.Name = "Canvas"
+	Canvas.Parent = ScreenGui
+	Canvas.BackgroundColor3 = Color3.fromRGB(18, 17, 22)
+	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Canvas.BorderSizePixel = 0
+	Canvas.Position = UDim2.new(0.255474448, 0, 0.26758793, 0)
+	Canvas.Size = UDim2.new(0, 590, 0, 407)
+
+	UICorner.Parent = Canvas
+
+	Tab1.Name = "Tab1"
+	Tab1.Parent = Canvas
+	Tab1.Active = true
+	Tab1.BackgroundColor3 = Color3.fromRGB(16, 15, 20)
+	Tab1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Tab1.BorderSizePixel = 0
+	Tab1.Position = UDim2.new(0.0830508471, 0, 0.110565111, 0)
+	Tab1.Size = UDim2.new(0.906779647, 0, 0.889434814, 0)
+	Tab1.ScrollBarImageColor3 = Color3.fromRGB(111, 120, 255)
+	Tab1.BottomImage = ""
+	Tab1.CanvasPosition = Vector2.new(0, 452)
+	Tab1.MidImage = "rbxassetid://95591733073455"
+	Tab1.ScrollBarThickness = 8
+	Tab1.TopImage = ""
+
+	UICorner_2.CornerRadius = UDim.new(0, 5)
+	UICorner_2.Parent = Tab1
+
+	Tab.Name = "Tab"
+	Tab.Parent = Canvas
+	Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Tab.BackgroundTransparency = 1.000
+	Tab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Tab.BorderSizePixel = 0
+	Tab.Position = UDim2.new(0, 0, 0.110565111, 0)
+	Tab.Size = UDim2.new(0.0830508471, 0, 0.889434874, 0)
+
+	UIListLayout.Parent = Tab
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0.0299999993, 0)
+	
+	local frameobj = {}
+	
+	function frameobj:NewTab(Icon)
+		local Icon = Icons.GetAsset(Icon, 48)
+		local TabExample = Instance.new("ImageButton")
+		local UICorner_3 = Instance.new("UICorner")
+
+		TabExample.Name = "TabExample"
+		TabExample.Parent = Tab
+		TabExample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabExample.BackgroundTransparency = 1.000
+		TabExample.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		TabExample.BorderSizePixel = 0
+		TabExample.Size = UDim2.new(1, 0, 0.140883982, 0)
+		TabExample.Image = Icon.Id
+
+		UICorner_3.Parent = TabExample
+	end
+	
+	return frameobj
+end
+
+return Menu
