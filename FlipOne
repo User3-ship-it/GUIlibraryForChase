@@ -10,6 +10,18 @@ function Library:New(Name)
 	local Tabs = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local UIPadding = Instance.new("UIPadding")
+	local SquareUP = Instance.new("Frame")
+	local UIListLayout_3 = Instance.new("UIListLayout")
+	local BlueSquare = Instance.new("Frame")
+	local BlueSquare_2 = Instance.new("Frame")
+	local BlueSquare_3 = Instance.new("Frame")
+	local BlueSquare_4 = Instance.new("Frame")
+	local BlueSquare_5 = Instance.new("Frame")
+	local BlueSquare_6 = Instance.new("Frame")
+	local BlueSquare_7 = Instance.new("Frame")
+	local BlueSquare_8 = Instance.new("Frame")
+	local BlueSquare_9 = Instance.new("Frame")
+	local BlueSquare_10 = Instance.new("Frame")
 
 	--Properties:
 
@@ -60,6 +72,98 @@ function Library:New(Name)
 	UIPadding.Parent = Tabs
 	UIPadding.PaddingLeft = UDim.new(0.0599999987, 0)
 	UIPadding.PaddingTop = UDim.new(0.00999999978, 0)
+	
+	SquareUP.Name = "SquareUP"
+	SquareUP.Parent = Canvas
+	SquareUP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	SquareUP.BackgroundTransparency = 1.000
+	SquareUP.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	SquareUP.BorderSizePixel = 0
+	SquareUP.Position = UDim2.new(0.275999993, 0, 0.0829999968, 0)
+	SquareUP.Size = UDim2.new(0.712000012, 0, 0.899999976, 0)
+	SquareUP.ZIndex = 2
+
+	UIListLayout_3.Parent = SquareUP
+	UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+
+	BlueSquare.Name = "BlueSquare"
+	BlueSquare.Parent = SquareUP
+	BlueSquare.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare.BorderSizePixel = 0
+	BlueSquare.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_2.Name = "BlueSquare"
+	BlueSquare_2.Parent = SquareUP
+	BlueSquare_2.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_2.BorderSizePixel = 0
+	BlueSquare_2.Position = UDim2.new(0, 0, 0.0999338329, 0)
+	BlueSquare_2.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_3.Name = "BlueSquare"
+	BlueSquare_3.Parent = SquareUP
+	BlueSquare_3.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_3.BorderSizePixel = 0
+	BlueSquare_3.Position = UDim2.new(0, 0, 0.199867666, 0)
+	BlueSquare_3.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_4.Name = "BlueSquare"
+	BlueSquare_4.Parent = SquareUP
+	BlueSquare_4.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_4.BorderSizePixel = 0
+	BlueSquare_4.Position = UDim2.new(0, 0, 0.299801499, 0)
+	BlueSquare_4.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_5.Name = "BlueSquare"
+	BlueSquare_5.Parent = SquareUP
+	BlueSquare_5.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_5.BorderSizePixel = 0
+	BlueSquare_5.Position = UDim2.new(0, 0, 0.399735332, 0)
+	BlueSquare_5.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_6.Name = "BlueSquare"
+	BlueSquare_6.Parent = SquareUP
+	BlueSquare_6.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_6.BorderSizePixel = 0
+	BlueSquare_6.Position = UDim2.new(0, 0, 0.499669164, 0)
+	BlueSquare_6.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_7.Name = "BlueSquare"
+	BlueSquare_7.Parent = SquareUP
+	BlueSquare_7.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_7.BorderSizePixel = 0
+	BlueSquare_7.Position = UDim2.new(0, 0, 0.599602997, 0)
+	BlueSquare_7.Size = UDim2.new(-0, 0, 0.0999336764, 0)
+
+	BlueSquare_8.Name = "BlueSquare"
+	BlueSquare_8.Parent = SquareUP
+	BlueSquare_8.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_8.BorderSizePixel = 0
+	BlueSquare_8.Position = UDim2.new(0, 0, 0.699536741, 0)
+	BlueSquare_8.Size = UDim2.new(-0, 0, 0.0999336764, 0)
+
+	BlueSquare_9.Name = "BlueSquare"
+	BlueSquare_9.Parent = SquareUP
+	BlueSquare_9.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_9.BorderSizePixel = 0
+	BlueSquare_9.Position = UDim2.new(0, 0, 0.799470425, 0)
+	BlueSquare_9.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+
+	BlueSquare_10.Name = "BlueSquare"
+	BlueSquare_10.Parent = SquareUP
+	BlueSquare_10.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
+	BlueSquare_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	BlueSquare_10.BorderSizePixel = 0
+	BlueSquare_10.Position = UDim2.new(0, 0, 0.899404228, 0)
+	BlueSquare_10.Size = UDim2.new(-0, 0, 0.0999338329, 0)
 
 	local dragging
 	local dragInput
@@ -171,6 +275,27 @@ function Library:New(Name)
 				TweenService:Create(old.TabName, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 				old.TabFrame.Visible = false
 			end
+			
+			task.spawn(function()
+				local tweenService = game:GetService("TweenService")
+				local easingData = TweenInfo.new(0.4,Enum.EasingStyle.Sine)
+				local squares = SquareUP:GetChildren()
+				for i,v in squares do
+					if v:IsA("Frame") then
+						local tween = TweenService:Create(v,easingData,{Size = UDim2.new(1, 0,0.1, 0)})
+						tween:Play()
+						task.wait(0.13)
+					end
+				end 
+				task.wait(0.14)
+				for i,v in squares do
+					if v:IsA("Frame") then
+						local tween = TweenService:Create(v,easingData,{Size = UDim2.new(-0, 0,0.1, 0)})
+						tween:Play()
+						task.wait(0.13)
+					end
+				end 
+			end)
 
 			-- Animate current tab
 			local current = tabData[Tab]
