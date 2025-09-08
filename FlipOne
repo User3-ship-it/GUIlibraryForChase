@@ -16,7 +16,7 @@ function Library:New(Name)
 	ScreenGui.Parent = game:GetService('Players').LocalPlayer:WaitForChild("PlayerGui")
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-    ScreenGui.ResetOnSpawn = false 
+	ScreenGui.ResetOnSpawn = false 
 
 	Canvas.Name = "Canvas"
 	Canvas.Parent = ScreenGui
@@ -73,7 +73,7 @@ function Library:New(Name)
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y
 		)
 	end
-	
+
 	Canvas.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
@@ -99,16 +99,16 @@ function Library:New(Name)
 			update(input)
 		end
 	end)
-	
+
 	local selectedTab = nil
 	local tabData = {}
 
 	local FrameOBJ = {}
 
 	function FrameOBJ:CreateTab(TabText)
-		
+
 		local tab = {}
-		
+
 		local Tab = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner", Tab)
 		local UIStroke = Instance.new("UIStroke", Tab)
@@ -143,7 +143,7 @@ function Library:New(Name)
 		TabName.TextSize = 15
 		TabName.TextXAlignment = Enum.TextXAlignment.Left
 		TabName.Name = "TabName"
-		
+
 		local UIPadding = Instance.new("UIPadding")
 		UIPadding.PaddingTop = UDim.new(0.02,0)
 		UIPadding.PaddingLeft = UDim.new(0.05,0)
@@ -181,12 +181,12 @@ function Library:New(Name)
 
 			selectedTab = Tab
 		end)
-		
+
 		function tab:NewButton(Name,call)
 			local TextButton = Instance.new("TextButton")
 			local UICorner_4 = Instance.new("UICorner")
 			local UIStroke_2 = Instance.new("UIStroke")
-			
+
 			TextButton.Parent = TabFrame
 			TextButton.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 			TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -198,7 +198,7 @@ function Library:New(Name)
 			TextButton.Text = Name
 			TextButton.Name = "Button".. Name
 			TextButton.TextSize = 14
-			
+
 
 			UICorner_4.CornerRadius = UDim.new(0, 6)
 			UICorner_4.Parent = TextButton
@@ -208,14 +208,14 @@ function Library:New(Name)
 			UIStroke_2.Thickness = 2.000
 			UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
-			
+
 			TextButton.MouseButton1Click:Connect(function()
 				pcall(call)
 			end)
-			
+
 			print(Name,call)
 		end
-		
+
 		function tab:NewSlider(name, minValue, maxValue, defaultValue, callback)
 			local Slider = Instance.new("Frame")
 			local UICorner_5 = Instance.new("UICorner")
@@ -234,7 +234,7 @@ function Library:New(Name)
 			Slider.Size = UDim2.new(0.98, 0,0.041,0)
 
 			UICorner_5.Parent = Slider
-			
+
 			UIStroke_3.Parent = Slider
 			UIStroke_3.Color = Color3.fromRGB(40, 37, 38)
 			UIStroke_3.Thickness = 1.6
@@ -264,7 +264,7 @@ function Library:New(Name)
 			Fill.Parent = SlideBG
 			Fill.BackgroundColor3 = Color3.fromRGB(56, 51, 54)
 			Fill.Size = UDim2.new(0, 0, 1, 0)
-			
+
 			Fill.BorderSizePixel = 0
 
 			Trigger.Size = UDim2.new(1, 0, 1, 0)
@@ -314,7 +314,7 @@ function Library:New(Name)
 
 			return currentValue
 		end
-		
+
 		function tab:NewToggle(name,callback)
 			local tweenService = game:GetService("TweenService")
 			local tweenStyle = TweenInfo.new(0.34, Enum.EasingStyle.Sine)
@@ -326,7 +326,8 @@ function Library:New(Name)
 			local TextButton_2 = Instance.new("TextButton")
 			local UICorner_7 = Instance.new("UICorner")
 			local UIStroke_5 = Instance.new("UIStroke")
-			
+			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
 			Toggle.Name = "Toggle".. name
 			Toggle.Parent = TabFrame
 			Toggle.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -374,7 +375,10 @@ function Library:New(Name)
 			UIStroke_5.Color = Color3.fromRGB(35, 35, 35)
 			UIStroke_5.Thickness = 2.000
 			UIStroke_5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-			
+
+			UIAspectRatioConstraint.Parent = TextButton_2
+			UIAspectRatioConstraint.AspectRatio = 1.000
+
 			TextButton_2.MouseButton1Click:Connect(function()
 				state = not state
 				if state == true then
@@ -389,7 +393,7 @@ function Library:New(Name)
 				end
 			end)
 		end
-		
+
 		return tab
 	end
 
