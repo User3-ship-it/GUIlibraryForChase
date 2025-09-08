@@ -278,7 +278,7 @@ function Library:New(Name)
 			
 			task.spawn(function()
 				local tweenService = game:GetService("TweenService")
-				local easingData = TweenInfo.new(0.4,Enum.EasingStyle.Sine)
+				local easingData = TweenInfo.new(0.2,Enum.EasingStyle.Sine)
 				local squares = SquareUP:GetChildren()
 				for i,v in squares do
 					if v:IsA("Frame") then
@@ -287,7 +287,7 @@ function Library:New(Name)
 						task.wait(0.07)
 					end
 				end 
-				task.wait(0.06)
+				task.wait(0.04)
 				for i,v in squares do
 					if v:IsA("Frame") then
 						local tween = TweenService:Create(v,easingData,{Size = UDim2.new(-0, 0,0.1, 0)})
@@ -325,7 +325,7 @@ function Library:New(Name)
 			TextButton.TextSize = 14
 
 
-			UICorner_4.CornerRadius = UDim.new(0, 6)
+			UICorner_4.CornerRadius = UDim.new(0.12, 0)
 			UICorner_4.Parent = TextButton
 
 			UIStroke_2.Parent = TextButton
@@ -363,7 +363,7 @@ function Library:New(Name)
 			UIStroke_3.Parent = Slider
 			UIStroke_3.Color = Color3.fromRGB(40, 37, 38)
 			UIStroke_3.Thickness = 1.6
-			UICorner_5.CornerRadius = UDim.new(0, 6)
+			UICorner_5.CornerRadius = UDim.new(0.12, 0)
 
 			SliderName.Name = "SliderName"
 			SliderName.Parent = Slider
@@ -460,7 +460,7 @@ function Library:New(Name)
 			Toggle.BorderSizePixel = 0
 			Toggle.Size = UDim2.new(0.980000019, 0, 0.0410000011, 0)
 
-			UICorner_6.CornerRadius = UDim.new(0, 6)
+			UICorner_6.CornerRadius = UDim.new(0.12, 0)
 			UICorner_6.Parent = Toggle
 
 			UIStroke_4.Parent = Toggle
@@ -493,7 +493,7 @@ function Library:New(Name)
 			TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 			TextButton_2.TextSize = 14.000
 
-			UICorner_7.CornerRadius = UDim.new(0, 6)
+			UICorner_7.CornerRadius = UDim.new(0.12, 0)
 			UICorner_7.Parent = TextButton_2
 
 			UIStroke_5.Parent = TextButton_2
@@ -517,6 +517,116 @@ function Library:New(Name)
 					pcall(callback, state)
 				end
 			end)
+		end
+		
+		function tab:NewDropdown(Type,Options,name)
+			if Type == "Single" then
+				local selected = nil
+				local Dropdown = Instance.new("Frame")
+				local UICorner_8 = Instance.new("UICorner")
+				local UIStroke_6 = Instance.new("UIStroke")
+				local Toggle_3 = Instance.new("TextLabel")
+				local ImageButton = Instance.new("ImageButton")
+				local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+				local UICorner_9 = Instance.new("UICorner")
+				Dropdown.Name = "Dropdown".. Name
+				Dropdown.Parent = TabFrame
+				Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+				Dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Dropdown.BorderSizePixel = 0
+				Dropdown.Size = UDim2.new(0.980000019, 0, 0.0410000011, 0)
+
+				UICorner_8.CornerRadius = UDim.new(0.12, 0)
+				UICorner_8.Parent = Dropdown
+
+				UIStroke_6.Parent = Dropdown
+				UIStroke_6.Color = Color3.fromRGB(40, 37, 38)
+				UIStroke_6.Thickness = 2.000
+				UIStroke_6.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+				Toggle_3.Name = "Title"
+				Toggle_3.Parent = Dropdown
+				Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Toggle_3.BackgroundTransparency = 1.000
+				Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Toggle_3.BorderSizePixel = 0
+				Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
+				Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
+				Toggle_3.Font = Enum.Font.Unknown
+				Toggle_3.Text = name
+				Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Toggle_3.TextSize = 14.000
+				Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+				ImageButton.Parent = Dropdown
+				ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				ImageButton.BackgroundTransparency = 1.000
+				ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				ImageButton.BorderSizePixel = 0
+				ImageButton.Position = UDim2.new(0.908999979, 0, 0.169, 0)
+				ImageButton.Size = UDim2.new(0.0520000011, 0, 0.638999999, 0)
+				ImageButton.Image = "rbxassetid://10723346553"
+				ImageButton.ImageColor3 = Color3.fromRGB(168, 168, 168)
+
+				UIAspectRatioConstraint_2.Parent = ImageButton
+				UIAspectRatioConstraint_2.AspectRatio = 1.000
+
+				UICorner_9.CornerRadius = UDim.new(0, 4)
+				UICorner_9.Parent = ImageButton
+			elseif Type == "Multiple" then
+				local selected = {}
+				local Dropdown = Instance.new("Frame")
+				local UICorner_8 = Instance.new("UICorner")
+				local UIStroke_6 = Instance.new("UIStroke")
+				local Toggle_3 = Instance.new("TextLabel")
+				local ImageButton = Instance.new("ImageButton")
+				local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+				local UICorner_9 = Instance.new("UICorner")
+				Dropdown.Name = "Dropdown".. Name
+				Dropdown.Parent = TabFrame
+				Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+				Dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Dropdown.BorderSizePixel = 0
+				Dropdown.Size = UDim2.new(0.980000019, 0, 0.0410000011, 0)
+
+				UICorner_8.CornerRadius = UDim.new(0.12, 0)
+				UICorner_8.Parent = Dropdown
+
+				UIStroke_6.Parent = Dropdown
+				UIStroke_6.Color = Color3.fromRGB(40, 37, 38)
+				UIStroke_6.Thickness = 2.000
+				UIStroke_6.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+				Toggle_3.Name = "Title"
+				Toggle_3.Parent = Dropdown
+				Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Toggle_3.BackgroundTransparency = 1.000
+				Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Toggle_3.BorderSizePixel = 0
+				Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
+				Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
+				Toggle_3.Font = Enum.Font.Unknown
+				Toggle_3.Text = name
+				Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Toggle_3.TextSize = 14.000
+				Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+				ImageButton.Parent = Dropdown
+				ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				ImageButton.BackgroundTransparency = 1.000
+				ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				ImageButton.BorderSizePixel = 0
+				ImageButton.Position = UDim2.new(0.908999979, 0, 0.169, 0)
+				ImageButton.Size = UDim2.new(0.0520000011, 0, 0.638999999, 0)
+				ImageButton.Image = "rbxassetid://10723346553"
+				ImageButton.ImageColor3 = Color3.fromRGB(168, 168, 168)
+
+				UIAspectRatioConstraint_2.Parent = ImageButton
+				UIAspectRatioConstraint_2.AspectRatio = 1.000
+
+				UICorner_9.CornerRadius = UDim.new(0, 4)
+				UICorner_9.Parent = ImageButton
+			end 
 		end
 
 		return tab
