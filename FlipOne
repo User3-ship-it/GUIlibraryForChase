@@ -2,6 +2,10 @@ local Library = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
+Library.TransitionSpeed = 0.2
+Library.WaitForNext = 0.7
+Library.TransitionBack = 0.04
+
 function Library:New(Name)
 	local ScreenGui = Instance.new("ScreenGui")
 	local Canvas = Instance.new("Frame")
