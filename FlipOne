@@ -40,7 +40,7 @@ function Library:New(Name)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.409, 0,0.542, 0)
+	Canvas.Size = UDim2.new(0.378, 0,0.518, 0)
 
 	UICorner.Parent = Canvas
 
@@ -76,7 +76,7 @@ function Library:New(Name)
 	UIPadding.Parent = Tabs
 	UIPadding.PaddingLeft = UDim.new(0.0599999987, 0)
 	UIPadding.PaddingTop = UDim.new(0.00999999978, 0)
-	
+
 	SquareUP.Name = "SquareUP"
 	SquareUP.Parent = Canvas
 	SquareUP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -95,7 +95,7 @@ function Library:New(Name)
 	BlueSquare.BackgroundColor3 = Color3.fromRGB(1, 175, 255)
 	BlueSquare.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare.BorderSizePixel = 0
-	BlueSquare.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_2.Name = "BlueSquare"
 	BlueSquare_2.Parent = SquareUP
@@ -103,7 +103,7 @@ function Library:New(Name)
 	BlueSquare_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_2.BorderSizePixel = 0
 	BlueSquare_2.Position = UDim2.new(0, 0, 0.0999338329, 0)
-	BlueSquare_2.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_2.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_3.Name = "BlueSquare"
 	BlueSquare_3.Parent = SquareUP
@@ -111,7 +111,7 @@ function Library:New(Name)
 	BlueSquare_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_3.BorderSizePixel = 0
 	BlueSquare_3.Position = UDim2.new(0, 0, 0.199867666, 0)
-	BlueSquare_3.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_3.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_4.Name = "BlueSquare"
 	BlueSquare_4.Parent = SquareUP
@@ -119,7 +119,7 @@ function Library:New(Name)
 	BlueSquare_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_4.BorderSizePixel = 0
 	BlueSquare_4.Position = UDim2.new(0, 0, 0.299801499, 0)
-	BlueSquare_4.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_4.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_5.Name = "BlueSquare"
 	BlueSquare_5.Parent = SquareUP
@@ -127,7 +127,7 @@ function Library:New(Name)
 	BlueSquare_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_5.BorderSizePixel = 0
 	BlueSquare_5.Position = UDim2.new(0, 0, 0.399735332, 0)
-	BlueSquare_5.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_5.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_6.Name = "BlueSquare"
 	BlueSquare_6.Parent = SquareUP
@@ -135,7 +135,7 @@ function Library:New(Name)
 	BlueSquare_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_6.BorderSizePixel = 0
 	BlueSquare_6.Position = UDim2.new(0, 0, 0.499669164, 0)
-	BlueSquare_6.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_6.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_7.Name = "BlueSquare"
 	BlueSquare_7.Parent = SquareUP
@@ -143,7 +143,7 @@ function Library:New(Name)
 	BlueSquare_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_7.BorderSizePixel = 0
 	BlueSquare_7.Position = UDim2.new(0, 0, 0.599602997, 0)
-	BlueSquare_7.Size = UDim2.new(-0, 0, 0.0999336764, 0)
+	BlueSquare_7.Size = UDim2.new(0, 0, 0.0999336764, 0)
 
 	BlueSquare_8.Name = "BlueSquare"
 	BlueSquare_8.Parent = SquareUP
@@ -151,7 +151,7 @@ function Library:New(Name)
 	BlueSquare_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_8.BorderSizePixel = 0
 	BlueSquare_8.Position = UDim2.new(0, 0, 0.699536741, 0)
-	BlueSquare_8.Size = UDim2.new(-0, 0, 0.0999336764, 0)
+	BlueSquare_8.Size = UDim2.new(0, 0, 0.0999336764, 0)
 
 	BlueSquare_9.Name = "BlueSquare"
 	BlueSquare_9.Parent = SquareUP
@@ -159,7 +159,7 @@ function Library:New(Name)
 	BlueSquare_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_9.BorderSizePixel = 0
 	BlueSquare_9.Position = UDim2.new(0, 0, 0.799470425, 0)
-	BlueSquare_9.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_9.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	BlueSquare_10.Name = "BlueSquare"
 	BlueSquare_10.Parent = SquareUP
@@ -167,7 +167,7 @@ function Library:New(Name)
 	BlueSquare_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	BlueSquare_10.BorderSizePixel = 0
 	BlueSquare_10.Position = UDim2.new(0, 0, 0.899404228, 0)
-	BlueSquare_10.Size = UDim2.new(-0, 0, 0.0999338329, 0)
+	BlueSquare_10.Size = UDim2.new(0, 0, 0.0999338329, 0)
 
 	local dragging
 	local dragInput
@@ -279,7 +279,7 @@ function Library:New(Name)
 				TweenService:Create(old.TabName, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 				old.TabFrame.Visible = false
 			end
-			
+
 			task.spawn(function()
 				local tweenService = game:GetService("TweenService")
 				local easingData = TweenInfo.new(Library.TransitionSpeed,Enum.EasingStyle.Sine)
@@ -355,6 +355,9 @@ function Library:New(Name)
 			local Trigger = Instance.new("TextButton")
 			local corner = Instance.new("UICorner")
 			local stroke = Instance.new("UIStroke")
+			local Teller = Instance.new("TextLabel")
+			local UICorner_6 = Instance.new("UICorner")
+			local UIStroke_4 = Instance.new("UIStroke")
 
 			Slider.Name = "Slider"..name
 			SlideBG.Name = "SlideBG"
@@ -400,6 +403,27 @@ function Library:New(Name)
 			Trigger.BackgroundTransparency = 1
 			Trigger.Text = ""
 			Trigger.Parent = SlideBG
+			
+			Teller.Name = "Teller"
+			Teller.Parent = Slider
+			Teller.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+			Teller.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Teller.BorderSizePixel = 0
+			Teller.Position = UDim2.new(0.495118469, 0, 0.202022702, 0)
+			Teller.Size = UDim2.new(0.0808327571, 0, 0.54072094, 0)
+			Teller.Font = Font.fromId(12187371840)
+			Teller.Text = "0"
+			Teller.TextColor3 = Color3.fromRGB(214, 214, 214)
+			Teller.TextSize = 14.000
+			Teller.TextScaled = true
+
+			UICorner_6.CornerRadius = UDim.new(0.150000006, 0)
+			UICorner_6.Parent = Teller
+
+			UIStroke_4.Parent = Teller
+			UIStroke_4.Color = Color3.fromRGB(40, 37, 38)
+			UIStroke_4.Thickness = 2.000
+			UIStroke_4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 			-- Slider logic
 			local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 			local tweenService = game:GetService("TweenService")
@@ -412,7 +436,9 @@ function Library:New(Name)
 				local relativeX = math.clamp(mouse.X - triggerAbsPos, 0, triggerWidth)
 				local percent = relativeX / triggerWidth
 				local value = minValue + percent * (maxValue - minValue)
-				value = math.clamp(value, minValue, maxValue)
+				value = math.clamp(math.round(value), minValue, maxValue)
+
+				Teller.Text = value  -- no need for decimals now
 
 				if currentValue ~= value then
 					tweenService:Create(Fill, tweenStyle, { Size = UDim2.fromScale(percent, 1) }):Play()
@@ -522,7 +548,7 @@ function Library:New(Name)
 				end
 			end)
 		end
-		
+
 		function tab:NewDropdown(Type,Options,name)
 			if Type == "Single" then
 				local selected = nil
