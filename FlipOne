@@ -282,21 +282,21 @@ function Library:New(Name)
 			
 			task.spawn(function()
 				local tweenService = game:GetService("TweenService")
-				local easingData = TweenInfo.new(0.2,Enum.EasingStyle.Sine)
+				local easingData = TweenInfo.new(Library.TransitionSpeed,Enum.EasingStyle.Sine)
 				local squares = SquareUP:GetChildren()
 				for i,v in squares do
 					if v:IsA("Frame") then
 						local tween = TweenService:Create(v,easingData,{Size = UDim2.new(1, 0,0.1, 0)})
 						tween:Play()
-						task.wait(0.07)
+						task.wait(Library.WaitForNext)
 					end
 				end 
-				task.wait(0.04)
+				task.wait(Library.TransitionBack)
 				for i,v in squares do
 					if v:IsA("Frame") then
 						local tween = TweenService:Create(v,easingData,{Size = UDim2.new(-0, 0,0.1, 0)})
 						tween:Play()
-						task.wait(0.07)
+						task.wait(Library.WaitForNext)
 					end
 				end 
 			end)
