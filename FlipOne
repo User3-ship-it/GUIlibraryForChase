@@ -411,7 +411,7 @@ function Library:New(Name)
 			Teller.BorderSizePixel = 0
 			Teller.Position = UDim2.new(0.495118469, 0, 0.202022702, 0)
 			Teller.Size = UDim2.new(0.0808327571, 0, 0.54072094, 0)
-			Teller.Font = Font.fromId(12187371840)
+			Teller.FontFace = Font.fromId(12187371840)
 			Teller.Text = "0"
 			Teller.TextColor3 = Color3.fromRGB(214, 214, 214)
 			Teller.TextSize = 14.000
