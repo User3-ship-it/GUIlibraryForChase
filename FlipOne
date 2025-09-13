@@ -693,6 +693,7 @@ function Library:New(Name)
 				Droppopupname.Size = UDim2.new(0, 301, 0, 16)
 				Droppopupname.FontFace = Font.fromId(12187371840)
 				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
+                Droppopupname.Text = name
 				Droppopupname.TextScaled = true
 				Droppopupname.TextSize = 14.000
 				Droppopupname.TextWrapped = true
@@ -977,6 +978,7 @@ function Library:New(Name)
 				Droppopupname.TextScaled = true
 				Droppopupname.TextSize = 14.000
 				Droppopupname.TextWrapped = true
+                Droppopupname.Text = name
 				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
 
 				UIAspectRatioConstraint_8.Parent = Droppopupname
