@@ -403,7 +403,7 @@ function Library:New(Name)
 			Trigger.BackgroundTransparency = 1
 			Trigger.Text = ""
 			Trigger.Parent = SlideBG
-			
+
 			Teller.Name = "Teller"
 			Teller.Parent = Slider
 			Teller.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -549,9 +549,13 @@ function Library:New(Name)
 			end)
 		end
 
-		function tab:NewDropdown(Type,Options,name)
+		function tab:NewDropdown(Type,Optionss,name)
 			if Type == "Single" then
+				local tweenService = game:GetService("TweenService")
+				local tweenStyle = TweenInfo.new(0.13, Enum.EasingStyle.Sine)
+				local tweenStyle2 = TweenInfo.new(0.28, Enum.EasingStyle.Sine)
 				local selected = nil
+				local oldSelected = nil
 				local Dropdown = Instance.new("Frame")
 				local UICorner_8 = Instance.new("UICorner")
 				local UIStroke_6 = Instance.new("UIStroke")
@@ -559,6 +563,20 @@ function Library:New(Name)
 				local ImageButton = Instance.new("ImageButton")
 				local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
 				local UICorner_9 = Instance.new("UICorner")
+				local DropdownPopup = Instance.new("Frame")
+				local UICorner_11 = Instance.new("UICorner")
+				local UIStroke_8 = Instance.new("UIStroke")
+				local Options = Instance.new("ScrollingFrame")
+				local UIListLayout_4 = Instance.new("UIListLayout")
+				local UIPadding_4 = Instance.new("UIPadding")
+				local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+				local Comfirm = Instance.new("TextButton")
+				local UICorner_14 = Instance.new("UICorner")
+				local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+				local Droppopupname = Instance.new("TextLabel")
+				local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+				local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+				
 				Dropdown.Name = "Dropdown".. Name
 				Dropdown.Parent = TabFrame
 				Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -582,7 +600,7 @@ function Library:New(Name)
 				Toggle_3.BorderSizePixel = 0
 				Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
 				Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
-				Toggle_3.Font = Enum.Font.Unknown
+				Toggle_3.FontFace = Font.fromId(12187371840)
 				Toggle_3.Text = name
 				Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Toggle_3.TextSize = 14.000
@@ -593,7 +611,7 @@ function Library:New(Name)
 				ImageButton.BackgroundTransparency = 1.000
 				ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ImageButton.BorderSizePixel = 0
-				ImageButton.Position = UDim2.new(0.908999979, 0, 0.169, 0)
+				ImageButton.Position = UDim2.new(0.899700403, 0, 0.189, 0)
 				ImageButton.Size = UDim2.new(0.0520000011, 0, 0.638999999, 0)
 				ImageButton.Image = "rbxassetid://10723346553"
 				ImageButton.ImageColor3 = Color3.fromRGB(168, 168, 168)
@@ -603,7 +621,224 @@ function Library:New(Name)
 
 				UICorner_9.CornerRadius = UDim.new(0, 4)
 				UICorner_9.Parent = ImageButton
+				
+				DropdownPopup.Name = "DropdownPopup"
+				DropdownPopup.Parent = Canvas
+				DropdownPopup.AnchorPoint = Vector2.new(0.5, 0.5)
+				DropdownPopup.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+				DropdownPopup.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropdownPopup.BorderSizePixel = 0
+				DropdownPopup.Position = UDim2.new(0.500453055, 0, 0.531322122, 0)
+				DropdownPopup.Size = UDim2.new(0.58324039, 0, 0.606967211, 0)
+				DropdownPopup.ZIndex = 6
+				DropdownPopup.Visible = false
+
+				UICorner_11.CornerRadius = UDim.new(0.0299999993, 0)
+				UICorner_11.Parent = DropdownPopup
+
+				UIStroke_8.Parent = DropdownPopup
+				UIStroke_8.Color = Color3.fromRGB(40, 37, 38)
+				UIStroke_8.Thickness = 2.000
+				UIStroke_8.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+				Options.Name = "Options"
+				Options.Parent = DropdownPopup
+				Options.Active = true
+				Options.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+				Options.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Options.BorderSizePixel = 0
+				Options.Position = UDim2.new(0.0590000004, 0, 0.144999996, 0)
+				Options.Size = UDim2.new(0.883000016, 0, 0.658999979, 0)
+				Options.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+				Options.ScrollBarImageTransparency = 1
+
+				UIListLayout_4.Parent = Options
+				UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+				UIListLayout_4.Padding = UDim.new(0.0199999996, 0)
+
+				UIPadding_4.Parent = Options
+				UIPadding_4.PaddingLeft = UDim.new(0.0299999993, 0)
+				UIPadding_4.PaddingTop = UDim.new(0.0299999993, 0)
+
+				UIAspectRatioConstraint_6.Parent = Options
+				UIAspectRatioConstraint_6.AspectRatio = 1.829
+
+				Comfirm.Name = "Comfirm"
+				Comfirm.Parent = DropdownPopup
+				Comfirm.BackgroundColor3 = Color3.fromRGB(20, 165, 255)
+				Comfirm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Comfirm.BorderSizePixel = 0
+				Comfirm.Position = UDim2.new(0.0590000004, 0, 0.853999972, 0)
+				Comfirm.Size = UDim2.new(0.352797031, 0, 0.0977992266, 0)
+				Comfirm.FontFace = Font.fromId(12187371840)
+				Comfirm.Text = "Confirm"
+				Comfirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Comfirm.TextScaled = true
+				Comfirm.TextSize = 14.000
+				Comfirm.TextWrapped = true
+
+				UICorner_14.CornerRadius = UDim.new(0.200000003, 0)
+				UICorner_14.Parent = Comfirm
+
+				UIAspectRatioConstraint_7.Parent = Comfirm
+				UIAspectRatioConstraint_7.AspectRatio = 4.924
+
+				Droppopupname.Name = "Droppopupname"
+				Droppopupname.Parent = DropdownPopup
+				Droppopupname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.BackgroundTransparency = 1.000
+				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Droppopupname.BorderSizePixel = 0
+				Droppopupname.Position = UDim2.new(0.0585703924, 0, 0.0515413955, 0)
+				Droppopupname.Size = UDim2.new(0, 301, 0, 16)
+				Droppopupname.FontFace = Font.fromId(12187371840)
+				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.TextScaled = true
+				Droppopupname.TextSize = 14.000
+				Droppopupname.TextWrapped = true
+				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
+
+				UIAspectRatioConstraint_8.Parent = Droppopupname
+				UIAspectRatioConstraint_8.AspectRatio = 18.812
+
+				UIAspectRatioConstraint_9.Parent = DropdownPopup
+				UIAspectRatioConstraint_9.AspectRatio = 1.365
+				
+				local togls = {}
+				
+				for i, optionName in ipairs(Optionss) do
+					local Option1 = Instance.new("Frame")
+					local UIStroke_9 = Instance.new("UIStroke")
+					local UICorner_12 = Instance.new("UICorner")
+					local TextButton_3 = Instance.new("TextButton")
+					local UICorner_13 = Instance.new("UICorner")
+					local UIStroke_10 = Instance.new("UIStroke")
+					local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+					local Toggle_3 = Instance.new("TextLabel")
+					local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+					local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+					
+					Option1.Name = "Option1"
+					Option1.Parent = Options
+					Option1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+					Option1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Option1.BorderSizePixel = 0
+					Option1.Position = UDim2.new(2.28251604e-08, 0, 0.0629351735, 0)
+					Option1.Size = UDim2.new(0, 278, 0, 37)
+
+					UIStroke_9.Parent = Option1
+					UIStroke_9.Color = Color3.fromRGB(40, 37, 38)
+					UIStroke_9.Thickness = 2.000
+					UIStroke_9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+					UICorner_12.CornerRadius = UDim.new(0.119999997, 0)
+					UICorner_12.Parent = Option1
+
+					TextButton_3.Parent = Option1
+					TextButton_3.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+					TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					TextButton_3.BorderSizePixel = 0
+					TextButton_3.Position = UDim2.new(0.871406376, 0, 0.214684561, 0)
+					TextButton_3.Size = UDim2.new(0.0720606446, 0, 0.551630795, 0)
+					TextButton_3.FontFace = Font.fromId(12187371840)
+					TextButton_3.Text = " "
+					TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+					TextButton_3.TextSize = 14.000
+
+					UICorner_13.CornerRadius = UDim.new(0.150000006, 0)
+					UICorner_13.Parent = TextButton_3
+
+					UIStroke_10.Parent = TextButton_3
+					UIStroke_10.Color = Color3.fromRGB(35, 35, 35)
+					UIStroke_10.Thickness = 2.000
+					UIStroke_10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+					UIAspectRatioConstraint_3.Parent = TextButton_3
+					UIAspectRatioConstraint_3.AspectRatio = 0.982
+
+					Toggle_3.Name = "Toggle"
+					Toggle_3.Parent = Option1
+					Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Toggle_3.BackgroundTransparency = 1.000
+					Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Toggle_3.BorderSizePixel = 0
+					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
+					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
+					Toggle_3.FontFace = Font.fromId(12187371840)
+					Toggle_3.Text = optionName
+					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Toggle_3.TextSize = 14.000
+					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+					UIAspectRatioConstraint_4.Parent = Toggle_3
+					UIAspectRatioConstraint_4.AspectRatio = 2.398
+
+					UIAspectRatioConstraint_5.Parent = Option1
+					UIAspectRatioConstraint_5.AspectRatio = 7.514
+					
+					togls[optionName] = TextButton_3
+				end
+				
+				local currentlyOpen = false
+				
+				local togl = {}
+				
+				ImageButton.MouseButton1Click:Connect(function()
+					currentlyOpen = not currentlyOpen
+					if currentlyOpen then
+						DropdownPopup.Visible = true
+						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.600, 0,0.700, 0)})
+						sizetween:Play()
+					else
+						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						sizetween:Play()
+						sizetween.Completed:Connect(function()
+							DropdownPopup.Visible = false
+						end)
+					end
+				end)
+				
+				Comfirm.MouseButton1Click:Connect(function()
+					if currentlyOpen then
+						currentlyOpen = false
+						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.453, 0,0.407, 0)})
+						sizetween:Play()
+						sizetween.Completed:Connect(function()
+							DropdownPopup.Visible = false
+						end)
+					end
+				end)
+				
+				for optionName, button in pairs(togls) do
+					button.MouseButton1Click:Connect(function()
+						oldSelected = selected
+						print(optionName) -- prints the actual option text
+						selected = optionName -- store the selected option
+						if oldSelected ~= nil then
+							if oldSelected ~= optionName then
+								TweenService:Create(togls[oldSelected], tweenStyle2, {BackgroundColor3 = Color3.fromRGB(28, 28, 28)}):Play()
+								TweenService:Create(togls[oldSelected].UIStroke, tweenStyle2, {Color = Color3.fromRGB(35, 35, 35)}):Play()
+							end
+						end
+						if selected ~= nil then
+							TweenService:Create(togls[selected], tweenStyle2, {BackgroundColor3 = Color3.fromRGB(20, 165, 255)}):Play()
+							TweenService:Create(togls[selected].UIStroke, tweenStyle2, {Color = Color3.fromRGB(12, 100, 148)}):Play()
+						end
+					end)
+				end
+				
+				function togl:GetSelected()
+					return selected
+				end
+				
+				return togl
 			elseif Type == "Multiple" then
+				local tweenService = game:GetService("TweenService")
+				local tweenStyle = TweenInfo.new(0.13, Enum.EasingStyle.Sine)
+				local tweenStyle2 = TweenInfo.new(0.28, Enum.EasingStyle.Sine)
 				local selected = {}
 				local Dropdown = Instance.new("Frame")
 				local UICorner_8 = Instance.new("UICorner")
@@ -612,6 +847,20 @@ function Library:New(Name)
 				local ImageButton = Instance.new("ImageButton")
 				local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
 				local UICorner_9 = Instance.new("UICorner")
+				local DropdownPopup = Instance.new("Frame")
+				local UICorner_11 = Instance.new("UICorner")
+				local UIStroke_8 = Instance.new("UIStroke")
+				local Options = Instance.new("ScrollingFrame")
+				local UIListLayout_4 = Instance.new("UIListLayout")
+				local UIPadding_4 = Instance.new("UIPadding")
+				local UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+				local Comfirm = Instance.new("TextButton")
+				local UICorner_14 = Instance.new("UICorner")
+				local UIAspectRatioConstraint_7 = Instance.new("UIAspectRatioConstraint")
+				local Droppopupname = Instance.new("TextLabel")
+				local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
+				local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
+
 				Dropdown.Name = "Dropdown".. Name
 				Dropdown.Parent = TabFrame
 				Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -635,7 +884,7 @@ function Library:New(Name)
 				Toggle_3.BorderSizePixel = 0
 				Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
 				Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
-				Toggle_3.Font = Enum.Font.Unknown
+				Toggle_3.FontFace = Font.fromId(12187371840)
 				Toggle_3.Text = name
 				Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Toggle_3.TextSize = 14.000
@@ -646,7 +895,7 @@ function Library:New(Name)
 				ImageButton.BackgroundTransparency = 1.000
 				ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				ImageButton.BorderSizePixel = 0
-				ImageButton.Position = UDim2.new(0.908999979, 0, 0.169, 0)
+				ImageButton.Position = UDim2.new(0.899700403, 0, 0.189, 0)
 				ImageButton.Size = UDim2.new(0.0520000011, 0, 0.638999999, 0)
 				ImageButton.Image = "rbxassetid://10723346553"
 				ImageButton.ImageColor3 = Color3.fromRGB(168, 168, 168)
@@ -656,7 +905,226 @@ function Library:New(Name)
 
 				UICorner_9.CornerRadius = UDim.new(0, 4)
 				UICorner_9.Parent = ImageButton
-			end 
+
+				DropdownPopup.Name = "DropdownPopup"
+				DropdownPopup.Parent = Canvas
+				DropdownPopup.AnchorPoint = Vector2.new(0.5, 0.5)
+				DropdownPopup.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+				DropdownPopup.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropdownPopup.BorderSizePixel = 0
+				DropdownPopup.Position = UDim2.new(0.500453055, 0, 0.531322122, 0)
+				DropdownPopup.Size = UDim2.new(0.58324039, 0, 0.606967211, 0)
+				DropdownPopup.ZIndex = 6
+				DropdownPopup.Visible = false
+
+				UICorner_11.CornerRadius = UDim.new(0.0299999993, 0)
+				UICorner_11.Parent = DropdownPopup
+
+				UIStroke_8.Parent = DropdownPopup
+				UIStroke_8.Color = Color3.fromRGB(40, 37, 38)
+				UIStroke_8.Thickness = 2.000
+				UIStroke_8.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+				Options.Name = "Options"
+				Options.Parent = DropdownPopup
+				Options.Active = true
+				Options.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+				Options.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Options.BorderSizePixel = 0
+				Options.Position = UDim2.new(0.0590000004, 0, 0.144999996, 0)
+				Options.Size = UDim2.new(0.883000016, 0, 0.658999979, 0)
+				Options.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+				Options.ScrollBarImageTransparency = 1
+
+				UIListLayout_4.Parent = Options
+				UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+				UIListLayout_4.Padding = UDim.new(0.0199999996, 0)
+
+				UIPadding_4.Parent = Options
+				UIPadding_4.PaddingLeft = UDim.new(0.0299999993, 0)
+				UIPadding_4.PaddingTop = UDim.new(0.0299999993, 0)
+
+				UIAspectRatioConstraint_6.Parent = Options
+				UIAspectRatioConstraint_6.AspectRatio = 1.829
+
+				Comfirm.Name = "Comfirm"
+				Comfirm.Parent = DropdownPopup
+				Comfirm.BackgroundColor3 = Color3.fromRGB(20, 165, 255)
+				Comfirm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Comfirm.BorderSizePixel = 0
+				Comfirm.Position = UDim2.new(0.0590000004, 0, 0.853999972, 0)
+				Comfirm.Size = UDim2.new(0.352797031, 0, 0.0977992266, 0)
+				Comfirm.FontFace = Font.fromId(12187371840)
+				Comfirm.Text = "Confirm"
+				Comfirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Comfirm.TextScaled = true
+				Comfirm.TextSize = 14.000
+				Comfirm.TextWrapped = true
+
+				UICorner_14.CornerRadius = UDim.new(0.200000003, 0)
+				UICorner_14.Parent = Comfirm
+
+				UIAspectRatioConstraint_7.Parent = Comfirm
+				UIAspectRatioConstraint_7.AspectRatio = 4.924
+
+				Droppopupname.Name = "Droppopupname"
+				Droppopupname.Parent = DropdownPopup
+				Droppopupname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.BackgroundTransparency = 1.000
+				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Droppopupname.BorderSizePixel = 0
+				Droppopupname.Position = UDim2.new(0.0585703924, 0, 0.0515413955, 0)
+				Droppopupname.Size = UDim2.new(0, 301, 0, 16)
+				Droppopupname.FontFace = Font.fromId(12187371840)
+				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.TextScaled = true
+				Droppopupname.TextSize = 14.000
+				Droppopupname.TextWrapped = true
+				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
+
+				UIAspectRatioConstraint_8.Parent = Droppopupname
+				UIAspectRatioConstraint_8.AspectRatio = 18.812
+
+				UIAspectRatioConstraint_9.Parent = DropdownPopup
+				UIAspectRatioConstraint_9.AspectRatio = 1.365
+
+				local togls = {}
+
+				for i, optionName in ipairs(Optionss) do
+					local Option1 = Instance.new("Frame")
+					local UIStroke_9 = Instance.new("UIStroke")
+					local UICorner_12 = Instance.new("UICorner")
+					local TextButton_3 = Instance.new("TextButton")
+					local UICorner_13 = Instance.new("UICorner")
+					local UIStroke_10 = Instance.new("UIStroke")
+					local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+					local Toggle_3 = Instance.new("TextLabel")
+					local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+					local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+
+					Option1.Name = "Option1"
+					Option1.Parent = Options
+					Option1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+					Option1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Option1.BorderSizePixel = 0
+					Option1.Position = UDim2.new(2.28251604e-08, 0, 0.0629351735, 0)
+					Option1.Size = UDim2.new(0, 278, 0, 37)
+
+					UIStroke_9.Parent = Option1
+					UIStroke_9.Color = Color3.fromRGB(40, 37, 38)
+					UIStroke_9.Thickness = 2.000
+					UIStroke_9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+					UICorner_12.CornerRadius = UDim.new(0.119999997, 0)
+					UICorner_12.Parent = Option1
+
+					TextButton_3.Parent = Option1
+					TextButton_3.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+					TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					TextButton_3.BorderSizePixel = 0
+					TextButton_3.Position = UDim2.new(0.871406376, 0, 0.214684561, 0)
+					TextButton_3.Size = UDim2.new(0.0720606446, 0, 0.551630795, 0)
+					TextButton_3.FontFace = Font.fromId(12187371840)
+					TextButton_3.Text = " "
+					TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+					TextButton_3.TextSize = 14.000
+
+					UICorner_13.CornerRadius = UDim.new(0.150000006, 0)
+					UICorner_13.Parent = TextButton_3
+
+					UIStroke_10.Parent = TextButton_3
+					UIStroke_10.Color = Color3.fromRGB(35, 35, 35)
+					UIStroke_10.Thickness = 2.000
+					UIStroke_10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+					UIAspectRatioConstraint_3.Parent = TextButton_3
+					UIAspectRatioConstraint_3.AspectRatio = 0.982
+
+					Toggle_3.Name = "Toggle"
+					Toggle_3.Parent = Option1
+					Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					Toggle_3.BackgroundTransparency = 1.000
+					Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					Toggle_3.BorderSizePixel = 0
+					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
+					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
+					Toggle_3.FontFace = Font.fromId(12187371840)
+					Toggle_3.Text = optionName
+					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Toggle_3.TextSize = 14.000
+					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+					UIAspectRatioConstraint_4.Parent = Toggle_3
+					UIAspectRatioConstraint_4.AspectRatio = 2.398
+
+					UIAspectRatioConstraint_5.Parent = Option1
+					UIAspectRatioConstraint_5.AspectRatio = 7.514
+
+					togls[optionName] = TextButton_3
+				end
+
+				local currentlyOpen = false
+
+				local togl = {}
+
+				ImageButton.MouseButton1Click:Connect(function()
+					currentlyOpen = not currentlyOpen
+					if currentlyOpen then
+						DropdownPopup.Visible = true
+						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.600, 0,0.700, 0)})
+						sizetween:Play()
+					else
+						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						sizetween:Play()
+						sizetween.Completed:Connect(function()
+							DropdownPopup.Visible = false
+						end)
+					end
+				end)
+
+				Comfirm.MouseButton1Click:Connect(function()
+					if currentlyOpen then
+						currentlyOpen = false
+						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.453, 0,0.407, 0)})
+						sizetween:Play()
+						sizetween.Completed:Connect(function()
+							DropdownPopup.Visible = false
+						end)
+					end
+				end)
+
+				for optionName, button in pairs(togls) do
+					button.MouseButton1Click:Connect(function()
+						if selected[optionName] then
+							-- already selected, so unselect it
+							selected[optionName] = nil
+							TweenService:Create(button, tweenStyle2, {BackgroundColor3 = Color3.fromRGB(28, 28, 28)}):Play()
+							TweenService:Create(button.UIStroke, tweenStyle2, {Color = Color3.fromRGB(35, 35, 35)}):Play()
+						else
+							-- not selected, so select it
+							selected[optionName] = true
+							TweenService:Create(button, tweenStyle2, {BackgroundColor3 = Color3.fromRGB(20, 165, 255)}):Play()
+							TweenService:Create(button.UIStroke, tweenStyle2, {Color = Color3.fromRGB(12, 100, 148)}):Play()
+						end
+						print("Currently selected:", selected)
+					end)
+				end
+
+				function togl:GetSelected()
+					local selections = {}
+					for option, isSelected in pairs(selected) do
+						if isSelected then
+							table.insert(selections, option)
+						end
+					end
+					return selections
+				end
+
+				return togl 
+			end
 		end
 
 		return tab
