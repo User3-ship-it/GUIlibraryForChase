@@ -576,7 +576,7 @@ function Library:New(Name)
 				local Droppopupname = Instance.new("TextLabel")
 				local UIAspectRatioConstraint_8 = Instance.new("UIAspectRatioConstraint")
 				local UIAspectRatioConstraint_9 = Instance.new("UIAspectRatioConstraint")
-				
+
 				Dropdown.Name = "Dropdown".. Name
 				Dropdown.Parent = TabFrame
 				Dropdown.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -621,7 +621,7 @@ function Library:New(Name)
 
 				UICorner_9.CornerRadius = UDim.new(0, 4)
 				UICorner_9.Parent = ImageButton
-				
+
 				DropdownPopup.Name = "DropdownPopup"
 				DropdownPopup.Parent = Canvas
 				DropdownPopup.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -693,7 +693,7 @@ function Library:New(Name)
 				Droppopupname.Size = UDim2.new(0.883, 0,0.081, 0)
 				Droppopupname.FontFace = Font.fromId(12187371840)
 				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
-                Droppopupname.Text = name
+				Droppopupname.Text = name
 				Droppopupname.TextScaled = true
 				Droppopupname.TextSize = 14.000
 				Droppopupname.TextWrapped = true
@@ -704,9 +704,9 @@ function Library:New(Name)
 
 				UIAspectRatioConstraint_9.Parent = DropdownPopup
 				UIAspectRatioConstraint_9.AspectRatio = 1.365
-				
+
 				local togls = {}
-				
+
 				for i, optionName in ipairs(Optionss) do
 					local Option1 = Instance.new("Frame")
 					local UIStroke_9 = Instance.new("UIStroke")
@@ -718,7 +718,7 @@ function Library:New(Name)
 					local Toggle_3 = Instance.new("TextLabel")
 					local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
 					local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
-					
+
 					Option1.Name = "Option1"
 					Option1.Parent = Options
 					Option1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -773,14 +773,14 @@ function Library:New(Name)
 
 					UIAspectRatioConstraint_4.Parent = Toggle_3
 					UIAspectRatioConstraint_4.AspectRatio = 2.398
-					
+
 					togls[optionName] = TextButton_3
 				end
-				
+
 				local currentlyOpen = false
-				
+
 				local togl = {}
-				
+
 				ImageButton.MouseButton1Click:Connect(function()
 					currentlyOpen = not currentlyOpen
 					if currentlyOpen then
@@ -797,7 +797,7 @@ function Library:New(Name)
 						end)
 					end
 				end)
-				
+
 				Comfirm.MouseButton1Click:Connect(function()
 					if currentlyOpen then
 						currentlyOpen = false
@@ -809,7 +809,7 @@ function Library:New(Name)
 						end)
 					end
 				end)
-				
+
 				for optionName, button in pairs(togls) do
 					button.MouseButton1Click:Connect(function()
 						oldSelected = selected
@@ -827,11 +827,11 @@ function Library:New(Name)
 						end
 					end)
 				end
-				
+
 				function togl:GetSelected()
 					return selected
 				end
-				
+
 				return togl
 			elseif Type == "Multiple" then
 				local tweenService = game:GetService("TweenService")
@@ -903,22 +903,18 @@ function Library:New(Name)
 
 				UICorner_9.CornerRadius = UDim.new(0, 4)
 				UICorner_9.Parent = ImageButton
+				
+				DropdownPopup.Name = "DropdownPopup"
+				DropdownPopup.Parent = Canvas
+				DropdownPopup.AnchorPoint = Vector2.new(0.5, 0.5)
+				DropdownPopup.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+				DropdownPopup.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropdownPopup.BorderSizePixel = 0
+				DropdownPopup.Position = UDim2.new(0.500453055, 0, 0.531322122, 0)
+				DropdownPopup.Size = UDim2.new(0.58324039, 0, 0.606967211, 0)
+				DropdownPopup.ZIndex = 6
+				DropdownPopup.Visible = false
 
-				Droppopupname.Name = "Droppopupname"
-				Droppopupname.Parent = DropdownPopup
-				Droppopupname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Droppopupname.BackgroundTransparency = 1.000
-				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Droppopupname.BorderSizePixel = 0
-				Droppopupname.Position = UDim2.new(0.059, 0,0.043, 0)
-				Droppopupname.Size = UDim2.new(0.883, 0,0.081, 0)
-				Droppopupname.FontFace = Font.fromId(12187371840)
-				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
-                Droppopupname.Text = name
-				Droppopupname.TextScaled = true
-				Droppopupname.TextSize = 14.000
-				Droppopupname.TextWrapped = true
-				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
 
 				UICorner_11.CornerRadius = UDim.new(0.0299999993, 0)
 				UICorner_11.Parent = DropdownPopup
@@ -969,25 +965,22 @@ function Library:New(Name)
 
 				UIAspectRatioConstraint_7.Parent = Comfirm
 				UIAspectRatioConstraint_7.AspectRatio = 4.924
-
+				
 				Droppopupname.Name = "Droppopupname"
 				Droppopupname.Parent = DropdownPopup
 				Droppopupname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Droppopupname.BackgroundTransparency = 1.000
 				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Droppopupname.BorderSizePixel = 0
-				Droppopupname.Position = UDim2.new(0.0585703924, 0, 0.0515413955, 0)
-				Droppopupname.Size = UDim2.new(0, 301, 0, 16)
+				Droppopupname.Position = UDim2.new(0.059, 0,0.043, 0)
+				Droppopupname.Size = UDim2.new(0.883, 0,0.081, 0)
 				Droppopupname.FontFace = Font.fromId(12187371840)
 				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.Text = name
 				Droppopupname.TextScaled = true
 				Droppopupname.TextSize = 14.000
 				Droppopupname.TextWrapped = true
-                Droppopupname.Text = name
 				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
-
-				UIAspectRatioConstraint_8.Parent = Droppopupname
-				UIAspectRatioConstraint_8.AspectRatio = 18.812
 
 				UIAspectRatioConstraint_9.Parent = DropdownPopup
 				UIAspectRatioConstraint_9.AspectRatio = 1.365
