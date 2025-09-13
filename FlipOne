@@ -40,7 +40,7 @@ function Library:New(Name)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.378, 0,0.518, 0)
+	Canvas.Size = UDim2.new(0.358, 0,0.488, 0)
 
 	UICorner.Parent = Canvas
 
