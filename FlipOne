@@ -689,8 +689,8 @@ function Library:New(Name)
 				Droppopupname.BackgroundTransparency = 1.000
 				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Droppopupname.BorderSizePixel = 0
-				Droppopupname.Position = UDim2.new(0.0585703924, 0, 0.0515413955, 0)
-				Droppopupname.Size = UDim2.new(0, 301, 0, 16)
+				Droppopupname.Position = UDim2.new(0.059, 0,0.043, 0)
+				Droppopupname.Size = UDim2.new(0.883, 0,0.081, 0)
 				Droppopupname.FontFace = Font.fromId(12187371840)
 				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Droppopupname.Text = name
@@ -904,16 +904,21 @@ function Library:New(Name)
 				UICorner_9.CornerRadius = UDim.new(0, 4)
 				UICorner_9.Parent = ImageButton
 
-				DropdownPopup.Name = "DropdownPopup"
-				DropdownPopup.Parent = Canvas
-				DropdownPopup.AnchorPoint = Vector2.new(0.5, 0.5)
-				DropdownPopup.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-				DropdownPopup.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				DropdownPopup.BorderSizePixel = 0
-				DropdownPopup.Position = UDim2.new(0.500453055, 0, 0.531322122, 0)
-				DropdownPopup.Size = UDim2.new(0.58324039, 0, 0.606967211, 0)
-				DropdownPopup.ZIndex = 6
-				DropdownPopup.Visible = false
+				Droppopupname.Name = "Droppopupname"
+				Droppopupname.Parent = DropdownPopup
+				Droppopupname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Droppopupname.BackgroundTransparency = 1.000
+				Droppopupname.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Droppopupname.BorderSizePixel = 0
+				Droppopupname.Position = UDim2.new(0.059, 0,0.043, 0)
+				Droppopupname.Size = UDim2.new(0.883, 0,0.081, 0)
+				Droppopupname.FontFace = Font.fromId(12187371840)
+				Droppopupname.TextColor3 = Color3.fromRGB(255, 255, 255)
+                Droppopupname.Text = name
+				Droppopupname.TextScaled = true
+				Droppopupname.TextSize = 14.000
+				Droppopupname.TextWrapped = true
+				Droppopupname.TextXAlignment = Enum.TextXAlignment.Left
 
 				UICorner_11.CornerRadius = UDim.new(0.0299999993, 0)
 				UICorner_11.Parent = DropdownPopup
