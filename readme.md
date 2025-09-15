@@ -71,5 +71,33 @@ tab1:NewToggle("My Toggle", function(v)
 end)
 ```
 
+Full Example Code:
+
+```bash
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/User3-ship-it/GUIlibraryForChase/refs/heads/main/FlipOne"))()
+library.TransitionSpeed = 0.19
+library.WaitForNext = 0.055
+library.TransitionBack = 0.01
+
+local engine = library:New("Flipped")
+local tab1 = engine:CreateTab("Main")
+
+local Toggle = tab1:NewToggle("My Toggle", function(v)
+    print(v)
+end)
+
+local Slider = tab1:NewSlider("Slider", 0, 100, 16, function(v)
+    print(v)
+end)
+
+local dropdown = tab1:NewDropdown("Single",  {"Option2","Option1"}, "Dropdown")
+local dropdown = tab1:NewDropdown("Multiple",  {"Option2","Option1"}, "DropdownMultiple")
+
+local btn = tab1:NewButton("Press me!", function()
+    print("hello iam a button!")
+end)
+
+```
+
 i really dont know how to explain how to use this, my bad if my explaination was absolute TRASH
 
