@@ -1,4 +1,5 @@
-local Library = {}
+
+			local Library = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
@@ -40,7 +41,7 @@ function Library:New(Name)
 	Canvas.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Canvas.BorderSizePixel = 0
 	Canvas.Position = UDim2.new(0.255686998, 0, 0.143867925, 0)
-	Canvas.Size = UDim2.new(0.358, 0,0.488, 0)
+	Canvas.Size = UDim2.new(0.378, 0,0.518, 0)
 
 	UICorner.Parent = Canvas
 
@@ -779,97 +780,7 @@ function Library:New(Name)
 
 				local currentlyOpen = false
 
-			    local function CreateOption(name)
-                   	local Option1 = Instance.new("Frame")
-					local UIStroke_9 = Instance.new("UIStroke")
-					local UICorner_12 = Instance.new("UICorner")
-					local TextButton_3 = Instance.new("TextButton")
-					local UICorner_13 = Instance.new("UICorner")
-					local UIStroke_10 = Instance.new("UIStroke")
-					local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
-					local Toggle_3 = Instance.new("TextLabel")
-					local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
-					local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
-
-					Option1.Name = "Option1"
-					Option1.Parent = Options
-					Option1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-					Option1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					Option1.BorderSizePixel = 0
-					Option1.Position = UDim2.new(2.28251604e-08, 0, 0.0629351735, 0)
-					Option1.Size = UDim2.new(0.95, 0,0.074, 0)
-
-					UIStroke_9.Parent = Option1
-					UIStroke_9.Color = Color3.fromRGB(40, 37, 38)
-					UIStroke_9.Thickness = 2.000
-					UIStroke_9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-					UICorner_12.CornerRadius = UDim.new(0.119999997, 0)
-					UICorner_12.Parent = Option1
-
-					TextButton_3.Parent = Option1
-					TextButton_3.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
-					TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					TextButton_3.BorderSizePixel = 0
-					TextButton_3.Position = UDim2.new(0.871406376, 0, 0.214684561, 0)
-					TextButton_3.Size = UDim2.new(0.0720606446, 0, 0.551630795, 0)
-					TextButton_3.FontFace = Font.fromId(12187371840)
-					TextButton_3.Text = " "
-					TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-					TextButton_3.TextSize = 14.000
-
-					UICorner_13.CornerRadius = UDim.new(0.150000006, 0)
-					UICorner_13.Parent = TextButton_3
-
-					UIStroke_10.Parent = TextButton_3
-					UIStroke_10.Color = Color3.fromRGB(35, 35, 35)
-					UIStroke_10.Thickness = 2.000
-					UIStroke_10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-					UIAspectRatioConstraint_3.Parent = TextButton_3
-					UIAspectRatioConstraint_3.AspectRatio = 0.982
-
-					Toggle_3.Name = "Toggle"
-					Toggle_3.Parent = Option1
-					Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Toggle_3.BackgroundTransparency = 1.000
-					Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					Toggle_3.BorderSizePixel = 0
-					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
-					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
-					Toggle_3.FontFace = Font.fromId(12187371840)
-					Toggle_3.Text = name
-					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-					Toggle_3.TextSize = 14.000
-					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
-
-					UIAspectRatioConstraint_4.Parent = Toggle_3
-					UIAspectRatioConstraint_4.AspectRatio = 2.398
-
-					togls[optionName] = TextButton_3
-                end
-
 				local togl = {}
-
-                function togl:AddOption(name)
-                   CreateOption(name)
-                end
-
-function togl:RemoveOption(optionName)
-    local button = togls[optionName]
-    if button then
-        local parentFrame = button.Parent
-        if parentFrame then
-            parentFrame:Destroy()
-        end
-        togls[optionName] = nil
-        if Type == "Single" and selected == optionName then
-            selected = nil
-        elseif Type == "Multiple" then
-            selected[optionName] = nil
-        end
-    end
-end
 
 				ImageButton.MouseButton1Click:Connect(function()
 					currentlyOpen = not currentlyOpen
@@ -1149,97 +1060,7 @@ end
 
 				local currentlyOpen = false
 
-                local function CreateOption(name)
-                   	local Option1 = Instance.new("Frame")
-					local UIStroke_9 = Instance.new("UIStroke")
-					local UICorner_12 = Instance.new("UICorner")
-					local TextButton_3 = Instance.new("TextButton")
-					local UICorner_13 = Instance.new("UICorner")
-					local UIStroke_10 = Instance.new("UIStroke")
-					local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
-					local Toggle_3 = Instance.new("TextLabel")
-					local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
-					local UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
-
-					Option1.Name = "Option1"
-					Option1.Parent = Options
-					Option1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-					Option1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					Option1.BorderSizePixel = 0
-					Option1.Position = UDim2.new(2.28251604e-08, 0, 0.0629351735, 0)
-					Option1.Size = UDim2.new(0.95, 0,0.074, 0)
-
-					UIStroke_9.Parent = Option1
-					UIStroke_9.Color = Color3.fromRGB(40, 37, 38)
-					UIStroke_9.Thickness = 2.000
-					UIStroke_9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-					UICorner_12.CornerRadius = UDim.new(0.119999997, 0)
-					UICorner_12.Parent = Option1
-
-					TextButton_3.Parent = Option1
-					TextButton_3.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
-					TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					TextButton_3.BorderSizePixel = 0
-					TextButton_3.Position = UDim2.new(0.871406376, 0, 0.214684561, 0)
-					TextButton_3.Size = UDim2.new(0.0720606446, 0, 0.551630795, 0)
-					TextButton_3.FontFace = Font.fromId(12187371840)
-					TextButton_3.Text = " "
-					TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-					TextButton_3.TextSize = 14.000
-
-					UICorner_13.CornerRadius = UDim.new(0.150000006, 0)
-					UICorner_13.Parent = TextButton_3
-
-					UIStroke_10.Parent = TextButton_3
-					UIStroke_10.Color = Color3.fromRGB(35, 35, 35)
-					UIStroke_10.Thickness = 2.000
-					UIStroke_10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-					UIAspectRatioConstraint_3.Parent = TextButton_3
-					UIAspectRatioConstraint_3.AspectRatio = 0.982
-
-					Toggle_3.Name = "Toggle"
-					Toggle_3.Parent = Option1
-					Toggle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Toggle_3.BackgroundTransparency = 1.000
-					Toggle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					Toggle_3.BorderSizePixel = 0
-					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
-					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
-					Toggle_3.FontFace = Font.fromId(12187371840)
-					Toggle_3.Text = name
-					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-					Toggle_3.TextSize = 14.000
-					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
-
-					UIAspectRatioConstraint_4.Parent = Toggle_3
-					UIAspectRatioConstraint_4.AspectRatio = 2.398
-
-					togls[optionName] = TextButton_3
-                end
-
 				local togl = {}
-
-                function togl:AddOption(name)
-                   CreateOption(name)
-                end
-
-function togl:RemoveOption(optionName)
-    local button = togls[optionName]
-    if button then
-        local parentFrame = button.Parent
-        if parentFrame then
-            parentFrame:Destroy()
-        end
-        togls[optionName] = nil
-        if Type == "Single" and selected == optionName then
-            selected = nil
-        elseif Type == "Multiple" then
-            selected[optionName] = nil
-        end
-    end
-end
 
 				ImageButton.MouseButton1Click:Connect(function()
 					currentlyOpen = not currentlyOpen
