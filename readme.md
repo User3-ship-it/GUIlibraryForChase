@@ -1,37 +1,73 @@
-# Foobar
+# MY LIBRARY (idk what name to give it)
+so yeah this is just an simple but good ui library for roblox
 
-Foobar is a Python library for dealing with word pluralization.
+i dont really know what to say here so yeah
 
-## Installation
+## How to use
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+First, Start by putting this line of code in ur executor
 
 ```bash
-pip install foobar
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/User3-ship-it/GUIlibraryForChase/refs/heads/main/FlipOne"))()
+library.TransitionSpeed = 0.19
+library.WaitForNext = 0.055
+library.TransitionBack = 0.01
 ```
+This is just to reference the system so u can use its functions later
 
-## Usage
+To make a new Library GUI do this after referencing library
 
 ```python
-import foobar
+local engine = library:New("Flipped")
+```
+This makes a new thingy idk
 
-# returns 'words'
-foobar.pluralize('word')
+To make a tab just do:
 
-# returns 'geese'
-foobar.pluralize('goose')
+```bash
+local tab1 = engine:CreateTab("Main")
+```
+### --Elements--
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+Currently, u can only make Dropdowns,Buttons,Toggles and Sliders :( but soon i will make more options
+
+lets say u made ur tab, Now lets give it some elements!
+
+```bash
+tab1:NewButton("Press me!", function()
+    print("hello iam a button!")
+end)
 ```
 
-## Contributing
+this OBIOUSLY makes a button, you can also do:
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+```bash
+local dropdown = tab1:NewDropdown("Single",  {"Option2","Option1"}, "Name")
+```
+if u want to get the current selected values from a dropdown on a diferent part of the code, just do:
 
-Please make sure to update tests as appropriate.
+```bash
+dropdown:GetSelected()
+```
 
-## License
+There are 2 dropdown types: Single and Multiple
 
-[MIT](https://choosealicense.com/licenses/mit/)
+To make a slider, do this:
+
+```bash
+tab1:NewSlider("Slider", 0, 100, 16, function(v)
+    print(v)
+end)
+```
+
+v is the current value of the slider, the Second argument is the Minimum Value, the Third argument is the Max. Value and the Fourth value is the starting value
+
+And finally,
+To make a toggle, this is what u do:
+
+```bash
+tab1:NewToggle("My Toggle", function(v)
+    print(v)
+end)
+```
+
