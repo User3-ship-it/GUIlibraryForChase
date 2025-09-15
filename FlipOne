@@ -838,7 +838,7 @@ function Library:New(Name)
 					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
 					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
 					Toggle_3.FontFace = Font.fromId(12187371840)
-					Toggle_3.Text = optionName
+					Toggle_3.Text = name
 					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 					Toggle_3.TextSize = 14.000
 					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
@@ -1208,7 +1208,7 @@ end
 					Toggle_3.Position = UDim2.new(0.0337334462, 0, 0, 0)
 					Toggle_3.Size = UDim2.new(0.319197714, 0, 1, 0)
 					Toggle_3.FontFace = Font.fromId(12187371840)
-					Toggle_3.Text = optionName
+					Toggle_3.Text = name
 					Toggle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 					Toggle_3.TextSize = 14.000
 					Toggle_3.TextXAlignment = Enum.TextXAlignment.Left
