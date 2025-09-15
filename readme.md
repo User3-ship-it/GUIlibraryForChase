@@ -1,4 +1,4 @@
-# MY LIBRARY (idk what name to give it)
+# Flip's UI library
 so yeah this is just an simple but good ui library for roblox
 
 i dont really know what to say here so yeah
@@ -70,4 +70,6 @@ tab1:NewToggle("My Toggle", function(v)
     print(v)
 end)
 ```
+
+i really dont know how to explain how to use this, my bad if my explaination was absolute TRASH
 
