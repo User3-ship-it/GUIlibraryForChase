@@ -784,13 +784,13 @@ function Library:New(Name)
 
 				ImageButton.MouseButton1Click:Connect(function()
 					currentlyOpen = not currentlyOpen
-					if currentlyOpen then
+				if currentlyOpen then
 						DropdownPopup.Visible = true
 						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.600, 0,0.700, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.480, 0,0.580, 0)})
 						sizetween:Play()
 					else
-						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
 						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
@@ -1067,10 +1067,10 @@ function Library:New(Name)
 					if currentlyOpen then
 						DropdownPopup.Visible = true
 						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.600, 0,0.700, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.480, 0,0.580, 0)})
 						sizetween:Play()
 					else
-						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
+						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
 						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
