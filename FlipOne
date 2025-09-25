@@ -786,12 +786,12 @@ function Library:New(Name)
 					currentlyOpen = not currentlyOpen
 				if currentlyOpen then
 						DropdownPopup.Visible = true
-						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
+						DropdownPopup.Size = UDim2.new(0.400, 0,0.500, 0)
 						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.480, 0,0.580, 0)})
 						sizetween:Play()
 					else
 						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.400, 0,0.500, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
@@ -803,7 +803,7 @@ function Library:New(Name)
 					if currentlyOpen then
 						currentlyOpen = false
 					DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.400, 0,0.500, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
@@ -1066,12 +1066,12 @@ function Library:New(Name)
 					currentlyOpen = not currentlyOpen
 					if currentlyOpen then
 						DropdownPopup.Visible = true
-						DropdownPopup.Size = UDim2.new(0.483, 0,0.507, 0)
+						DropdownPopup.Size = UDim2.new(0.400, 0,0.500, 0)
 						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.480, 0,0.580, 0)})
 						sizetween:Play()
 					else
 						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.400, 0,0.500, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
@@ -1083,7 +1083,7 @@ function Library:New(Name)
 					if currentlyOpen then
 						currentlyOpen = false
 						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.400, 0,0.500, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
