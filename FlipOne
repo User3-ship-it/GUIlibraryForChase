@@ -802,8 +802,8 @@ function Library:New(Name)
 				Comfirm.MouseButton1Click:Connect(function()
 					if currentlyOpen then
 						currentlyOpen = false
-						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.453, 0,0.407, 0)})
+					DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
@@ -1082,8 +1082,8 @@ function Library:New(Name)
 				Comfirm.MouseButton1Click:Connect(function()
 					if currentlyOpen then
 						currentlyOpen = false
-						DropdownPopup.Size = UDim2.new(0.600, 0,0.700, 0)
-						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.453, 0,0.407, 0)})
+						DropdownPopup.Size = UDim2.new(0.480, 0,0.580, 0)
+						local sizetween = TweenService:Create(DropdownPopup,tweenStyle,{Size = UDim2.new(0.483, 0,0.507, 0)})
 						sizetween:Play()
 						sizetween.Completed:Connect(function()
 							DropdownPopup.Visible = false
