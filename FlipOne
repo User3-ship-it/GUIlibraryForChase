@@ -1,5 +1,5 @@
+local Library = {}
 
-			local Library = {}
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
@@ -44,6 +44,7 @@ function Library:New(Name)
 	Canvas.Size = UDim2.new(0.378, 0,0.518, 0)
 
 	UICorner.Parent = Canvas
+    UICorner.CornerRadius = UDim2.new(0.03, 0)
 
 	Title.Name = "Title"
 	Title.Parent = Canvas
